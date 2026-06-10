@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="PSA Dataset Hub — Standardized agricultural statistics from the Philippine Statistics Authority">
+  <title>PSA Dataset Hub | DA AgriStat Hub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body class="hub-page hub-page--psa">
+
+  <!-- Brand Bar -->
+  <header class="nav-hub-brand">
+    <div class="container nav-hub-brand__inner">
+      <div class="nav-hub-brand__left">
+        <a href="index.html" class="nav-hub-brand__logo">
+          <img src="assets/images/agristat-logo.svg" alt="" width="32" height="32">
+          <span>AgriStat Hub</span>
+        </a>
+        <nav class="nav-hub-brand__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator" aria-hidden="true">›</span>
+          <span aria-current="page">PSA Datasets</span>
+        </nav>
+      </div>
+      <a href="index.html" class="nav-hub-brand__back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Primary Hub Nav -->
+  <nav class="nav-hub-primary" aria-label="PSA hub navigation">
+    <div class="container nav-hub-primary__inner">
+      <button class="nav-hub-primary__toggle" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="hub-mobile-nav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+        Menu
+      </button>
+
+      <div class="nav-hub-primary__items">
+        <!-- Dashboards -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
+            aria-controls="dropdown-dashboards">
+            Dashboards
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-dashboards" role="menu">
+            <!-- Mobile accordion -->
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="production" aria-expanded="false">
+                    Production Volume
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="production">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Palay Productions<span
+                        class="commodity">Irrigated Palay · Rainfed Palay</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production<span
+                        class="commodity">Yellow Corn · White Corn</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit
+                      Production<span class="commodity">Mango · Banana · Pineapple · Other Fruits</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
+                      Production<span class="commodity">Cabbage · Tomato · Eggplant · Other Vegetables</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp; Industrial Crop
+                      Production<span class="commodity">Abaca · Rubber · Sugarcane · Other Crops</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries
+                      Production<span class="commodity">Bangus (Milkfish) · Tilapia · Other Species</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry &amp; Dairy
+                      Production<span class="commodity">Hog · Cattle · Chicken · Egg</span></a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="trade" aria-expanded="false">
+                    Marketing &amp; Trade
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="trade">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices">Farmgate Prices<span
+                        class="commodity">Monthly Price Monitor</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Desktop layout -->
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="production">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="trade">Marketing &amp; Trade</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production">
+                  <h4>Production Volume</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Palay Production<span
+                      class="commodity">Irrigated Palay · Rainfed Palay</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production<span
+                      class="commodity">Yellow Corn · White Corn</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production<span
+                      class="commodity">Mango · Banana · Pineapple · Other Fruits</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
+                    Production<span class="commodity">Cabbage · Tomato · Eggplant · Other Vegetables</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp; Industrial Crop
+                    Production<span class="commodity">Abaca · Rubber · Sugarcane · Other Crops</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries
+                    Production<span class="commodity">Bangus (Milkfish) · Tilapia · Other Species</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry &amp; Dairy
+                    Production<span class="commodity">Hog · Cattle · Chicken · Egg</span></a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="trade">
+                  <h4>Marketing &amp; Trade</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices">Farmgate Prices<span
+                      class="commodity">Monthly Price Monitor</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GeoMaps -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
+            aria-controls="dropdown-geomaps">
+            Geospatial Maps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-geomaps" role="menu">
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="production-map" aria-expanded="false">
+                    Production
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="production-map">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-regional-production-map">Regional Production
+                      Map</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-provincial-production-map">Provincial Production
+                      Map</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="area-harvested-map" aria-expanded="false">
+                    Area Harvested
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="area-harvested-map">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-map">Palay Area Harvested Map</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-map">Corn Area Harvested Map</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="yield-map" aria-expanded="false">
+                    Yield
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="yield-map">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-map">Palay Yield Map</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-map">Corn Yield Map</a>
+                  </div>
+                </div>                
+              </div>
+            </div>
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="production-map">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="area-harvested-map">Area Harvested</button>
+                <button class="mega-dropdown__desktop-category" data-category="yield-map">Yield</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-map">
+                  <h4>Production</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-regional-production-map">Regional Production Map</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-provincial-production-map">Provincial Production Map</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="area-harvested-map">
+                  <h4>Area Harvested</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-map">Palay Area Harvested Map</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-map">Corn Area Harvested Map</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="yield-map">
+                  <h4>Yield</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-map">Palay Yield Map</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-map">Corn Yield Map</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raw Data -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-raw">
+            Raw Data Tables
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-raw" role="menu">
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="production-table" aria-expanded="false">
+                    Production
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="production-table">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp; Industrial Crop Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock, Poultry &amp; Dairy Production</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="area-harvested-table" aria-expanded="false">
+                    Area Harvested
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="area-harvested-table">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Rice Area Harvested</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area Harvested</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="yield-table" aria-expanded="false">
+                    Yield
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="yield-table">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Rice Yield</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="trade-table" aria-expanded="false">
+                    Marketing &amp; Trade
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="trade-table">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices-table">Farmgate Prices</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="production-table">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="area-harvested-table">Area Harvested</button>
+                <button class="mega-dropdown__desktop-category" data-category="yield-table">Yield</button>
+                <button class="mega-dropdown__desktop-category" data-category="trade-table">Marketing &amp; Trade</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-table">
+                  <h4>Production</h4>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp; Industrial Crop Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock, Poultry &amp; Dairy Production</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="area-harvested-table">
+                  <h4>Area Harvested</h4>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Rice Area Harvested</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area Harvested</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="yield-table">
+                  <h4>Yield</h4>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Rice Yield</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="trade-table">
+                  <h4>Marketing &amp; Trade</h4>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices-table">Farmgate Prices</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Hub Nav -->
+  <nav class="nav-hub-mobile" id="hub-mobile-nav" aria-label="Mobile hub navigation">
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Dashboards</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Palay Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp; Industrial Crop Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry &amp; Dairy Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices">Farmgate Prices</a>
+      </div>
+    </div>
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Geospatial Maps</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-regional-production-map">Regional Production Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-provincial-production-map">Provincial Production Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-map">Palay Area Harvested Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-map">Corn Area Harvested Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-map">Palay Yield Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-map">Corn Yield Map</a>
+      </div>
+    </div>
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Raw Data Tables</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Palay Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp; Industrial Crop Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock, Poultry &amp; Dairy Production</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Palay Area Harvested</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area Harvested</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Palay Yield</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="psa-farmgate-prices-table">Farmgate Prices</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Viewer -->
+  <main class="hub-content">
+    <div class="embed-container">
+      <div class="embed-placeholder">
+        <div class="embed-placeholder__logo">
+          <img src="assets/images/psa-logo.svg" alt="" width="80" height="80">
+        </div>
+        <h2>Select a Dashboard</h2>
+        <p>Choose a dataset from the navigation menu above to load an interactive dashboard.</p>
+        <p class="embed-placeholder__hint">PSA Dataset Hub · Looker Studio &amp; Power BI</p>
+      </div>
+
+      <div class="embed-skeleton" aria-hidden="true">
+        <div class="embed-skeleton__bar"></div>
+        <div class="embed-skeleton__bar embed-skeleton__bar--medium"></div>
+        <div class="embed-skeleton__bar embed-skeleton__bar--short"></div>
+        <div class="embed-skeleton__chart"></div>
+      </div>
+
+      <div class="embed-pending embed-pending--dashboard is-hidden" aria-live="polite">
+        <div class="embed-pending__card">
+          <div class="embed-pending__icon" aria-hidden="true">
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--dashboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+              <path d="M15 14l2 2 4-4"/>
+            </svg>
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/>
+            </svg>
+          </div>
+          <span class="embed-pending__badge">Dashboard</span>
+          <h2 class="embed-pending__title"></h2>
+          <p class="embed-pending__message"></p>
+          <div class="embed-pending__progress" aria-hidden="true">
+            <span class="embed-pending__dot"></span>
+            <span class="embed-pending__dot"></span>
+            <span class="embed-pending__dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="embed-fullscreen-btn" aria-label="Enter fullscreen" aria-pressed="false">
+        <svg class="icon-enter" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" aria-hidden="true">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+        </svg>
+        <svg class="icon-exit" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" aria-hidden="true" style="display:none">
+          <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <script>
+    window.EMBED_REGISTRY = {
+      'psa-rice-production': {
+        title: 'PSA Rice Production Dashboard',
+        type: 'dashboard',
+        url: 'https://datastudio.google.com/embed/reporting/c63d0861-c37b-4453-9803-b7aa21e88e11/page/8QuyF'
+      },
+      'psa-corn-production': {
+        title: 'PSA Corn Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-fruit-production': {
+        title: 'PSA Fruit Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-vegetable-production': {
+        title: 'PSA Vegetable Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-non-food-production': {
+        title: 'PSA Non-Food & Industrial Crop Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-fish-production': {
+        title: 'PSA Fisheries Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-livestock-production': {
+        title: 'PSA Livestock Production Dashboard',
+        type: 'dashboard'
+      },
+      'psa-farmgate-prices': {
+        title: 'PSA Farmgate Prices Dashboard',
+        type: 'dashboard'
+      },
+      'psa-regional-production-map': {
+        title: 'PSA Regional Production Map',
+        type: 'map',
+        url: 'https://commodity-production-volume.vercel.app/'
+      },
+      'psa-provincial-production-map': {
+        title: 'PSA Provincial Production Map',
+        type: 'map'
+      },
+      'psa-rice-harvested-map': {
+        title: 'PSA Rice Area Harvested Map',
+        type: 'map'
+      },
+      'psa-corn-harvested-map': {
+        title: 'PSA Corn Area Harvested Map',
+        type: 'map'
+      },
+      'psa-rice-yield-map': {
+        title: 'PSA Rice Yield Map',
+        type: 'map'
+      },
+      'psa-corn-yield-map': {
+        title: 'PSA Corn Yield Map',
+        type: 'map'
+      },
+      'psa-rice-production-table': {
+        title: 'PSA Rice Production Table',
+        type: 'table'
+      },
+      'psa-corn-production-table': {
+        title: 'PSA Corn Production Table',
+        type: 'table'
+      },
+      'psa-fruit-production-table': {
+        title: 'PSA Fruit Production Table',
+        type: 'table'
+      },
+      'psa-vegetable-production-table': {
+        title: 'PSA Vegetable Production Table',
+        type: 'table'
+      },
+      'psa-non-food-production-table': {
+        title: 'PSA Non-Food & Industrial Crop Production Table',
+        type: 'table'
+      },
+      'psa-fish-production-table': {
+        title: 'PSA Fisheries Production Table',
+        type: 'table'
+      },
+      'psa-livestock-production-table': {
+        title: 'PSA Livestock Production Table',
+        type: 'table'
+      },
+      'psa-rice-harvested-table': {
+        title: 'PSA Rice Area Harvested Table',
+        type: 'table'
+      },
+      'psa-corn-harvested-table': {
+        title: 'PSA Corn Area Harvested Table',
+        type: 'table'
+      },
+      'psa-rice-yield-table': {
+        title: 'PSA Rice Yield Table',
+        type: 'table'
+      },
+      'psa-corn-yield-table': {
+        title: 'PSA Corn Yield Table',
+        type: 'table'
+      },
+      'psa-farmgate-prices-table': {
+        title: 'PSA Farmgate Prices Table',
+        type: 'table'
+      }
+    };
+  </script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dropdown.js"></script>
+  <script src="assets/js/embed.js"></script>
+</body>
+
+</html>

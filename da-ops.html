@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="DA Operational Hub — Department of Agriculture programs, projects, and field operations data">
+  <title>DA Operational Hub | DA AgriStat Hub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body class="hub-page hub-page--da">
+
+  <!-- Brand Bar -->
+  <header class="nav-hub-brand">
+    <div class="container nav-hub-brand__inner">
+      <div class="nav-hub-brand__left">
+        <a href="index.html" class="nav-hub-brand__logo">
+          <img src="assets/images/agristat-logo.svg" alt="" width="32" height="32">
+          <span>AgriStat Hub</span>
+        </a>
+        <nav class="nav-hub-brand__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator" aria-hidden="true">›</span>
+          <span aria-current="page">DA Operational Datasets</span>
+        </nav>
+      </div>
+      <a href="index.html" class="nav-hub-brand__back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Primary Hub Nav -->
+  <nav class="nav-hub-primary nav-hub-primary--da" aria-label="DA hub navigation">
+    <div class="container nav-hub-primary__inner">
+      <button class="nav-hub-primary__toggle" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="hub-mobile-nav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+        Menu
+      </button>
+
+      <div class="nav-hub-primary__items">
+        <!-- Dashboards -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
+            aria-controls="dropdown-dashboards">
+            Dashboards
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-dashboards" role="menu">
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="production" aria-expanded="false">
+                    Production
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="production">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring<span
+                        class="commodity">Palay · Milled Rice</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring<span
+                        class="commodity">Yellow Corn · White Corn</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-high-value-crops">High Value Crops<span
+                        class="commodity">Vegetables · Fruits</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-livestock-ops">Livestock Operations<span
+                        class="commodity">Cattle · Hog · Poultry</span></a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="input" aria-expanded="false">
+                    Input Supply
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="input">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution<span
+                        class="commodity">Subsidy Programs</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-seeds">Seeds &amp; Planting Materials<span
+                        class="commodity">Certified Seeds</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-machinery">Farm Machinery<span
+                        class="commodity">Tractors · Harvesters</span></a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="extension" aria-expanded="false">
+                    Extension &amp; Training
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="extension">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training
+                      Programs</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-extension-coverage">Extension Service
+                      Coverage</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="irrigation" aria-expanded="false">
+                    Irrigation &amp; Infrastructure
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="irrigation">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation
+                      Projects</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-postharvest">Post-Harvest Facilities</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="disaster" aria-expanded="false">
+                    Disaster &amp; Climate
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="disaster">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage
+                      Assessment</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-climate-adaptation">Climate Adaptation
+                      Programs</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="lending" aria-expanded="false">
+                    Lending &amp; Credit
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="lending">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-sure-aid">SURE Aid &amp; Calamity Loans</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="production">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="input">Input Supply</button>
+                <button class="mega-dropdown__desktop-category" data-category="extension">Extension &amp;
+                  Training</button>
+                <button class="mega-dropdown__desktop-category" data-category="irrigation">Irrigation &amp;
+                  Infrastructure</button>
+                <button class="mega-dropdown__desktop-category" data-category="disaster">Disaster &amp; Climate</button>
+                <button class="mega-dropdown__desktop-category" data-category="lending">Lending &amp; Credit</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production">
+                  <h4>Production</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring<span
+                      class="commodity">Palay · Milled Rice</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring<span
+                      class="commodity">Yellow Corn · White Corn</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-high-value-crops">High Value Crops<span
+                      class="commodity">Vegetables · Fruits</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-livestock-ops">Livestock Operations<span
+                      class="commodity">Cattle · Hog · Poultry</span></a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="input">
+                  <h4>Input Supply</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution<span
+                      class="commodity">Subsidy Programs</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-seeds">Seeds &amp; Planting Materials<span
+                      class="commodity">Certified Seeds</span></a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-machinery">Farm Machinery<span
+                      class="commodity">Tractors · Harvesters</span></a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="extension">
+                  <h4>Extension &amp; Training</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training Programs</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-extension-coverage">Extension Service
+                    Coverage</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="irrigation">
+                  <h4>Irrigation &amp; Infrastructure</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation Projects</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-postharvest">Post-Harvest Facilities</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="disaster">
+                  <h4>Disaster &amp; Climate</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage Assessment</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-climate-adaptation">Climate Adaptation
+                    Programs</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="lending">
+                  <h4>Lending &amp; Credit</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-sure-aid">SURE Aid &amp; Calamity Loans</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GeoMaps -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
+            aria-controls="dropdown-geomaps">
+            GeoMaps &amp; Baseline Data
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-geomaps" role="menu">
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="field-ops" aria-expanded="false">
+                    Field Operations Maps
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="field-ops">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
+                  </div>
+                </div>
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="baseline" aria-expanded="false">
+                    Baseline Data
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="baseline">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farm-parcels">Farm Parcel Database</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="field-ops">Field Operations
+                  Maps</button>
+                <button class="mega-dropdown__desktop-category" data-category="baseline">Baseline Data</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="field-ops">
+                  <h4>Field Operations Maps</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
+                </div>
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="baseline">
+                  <h4>Baseline Data</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farm-parcels">Farm Parcel Database</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raw Data -->
+        <div class="nav-hub-primary__item">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-raw">
+            Raw Data Tables
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-dropdown" id="dropdown-raw" role="menu">
+            <div class="mega-dropdown__inner">
+              <div class="mega-dropdown__categories">
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="tables" aria-expanded="false">
+                    Operational Reports
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="tables">
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mega-dropdown__desktop">
+              <div class="mega-dropdown__desktop-categories">
+                <button class="mega-dropdown__desktop-category is-active" data-category="tables">Operational
+                  Reports</button>
+              </div>
+              <div class="mega-dropdown__desktop-subitems">
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="tables">
+                  <h4>Operational Reports</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Hub Nav -->
+  <nav class="nav-hub-mobile" id="hub-mobile-nav" aria-label="Mobile hub navigation">
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Dashboards</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training Programs</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation Projects</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage Assessment</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
+      </div>
+    </div>
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">GeoMaps &amp; Baseline Data</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
+      </div>
+    </div>
+    <div class="nav-hub-mobile__section">
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Raw Data Tables</button>
+      <div class="nav-hub-mobile__content" style="display:none">
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
+        <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Viewer -->
+  <main class="hub-content">
+    <div class="embed-container">
+      <div class="embed-placeholder">
+        <div class="embed-placeholder__logo">
+          <img src="assets/images/da-logo.svg" alt="" width="80" height="80">
+        </div>
+        <h2>Select a Dashboard</h2>
+        <p>Choose an operational dataset from the navigation menu above to load an interactive dashboard.</p>
+        <p class="embed-placeholder__hint">DA Operational Hub · Looker Studio &amp; Power BI</p>
+      </div>
+
+      <div class="embed-skeleton" aria-hidden="true">
+        <div class="embed-skeleton__bar"></div>
+        <div class="embed-skeleton__bar embed-skeleton__bar--medium"></div>
+        <div class="embed-skeleton__bar embed-skeleton__bar--short"></div>
+        <div class="embed-skeleton__chart"></div>
+      </div>
+
+      <div class="embed-pending embed-pending--dashboard is-hidden" aria-live="polite">
+        <div class="embed-pending__card">
+          <div class="embed-pending__icon" aria-hidden="true">
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--dashboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+              <path d="M15 14l2 2 4-4"/>
+            </svg>
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <svg class="embed-pending__icon-icon embed-pending__icon-icon--table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/>
+            </svg>
+          </div>
+          <span class="embed-pending__badge">Dashboard</span>
+          <h2 class="embed-pending__title"></h2>
+          <p class="embed-pending__message"></p>
+          <div class="embed-pending__progress" aria-hidden="true">
+            <span class="embed-pending__dot"></span>
+            <span class="embed-pending__dot"></span>
+            <span class="embed-pending__dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="embed-fullscreen-btn" aria-label="Enter fullscreen" aria-pressed="false">
+        <svg class="icon-enter" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" aria-hidden="true">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+        </svg>
+        <svg class="icon-exit" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" aria-hidden="true" style="display:none">
+          <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <script>
+    window.EMBED_REGISTRY = {
+      'da-rice-programs': {
+        title: 'DA Rice Program Monitoring',
+        type: 'dashboard'
+      },
+      'da-corn-programs': {
+        title: 'DA Corn Program Monitoring',
+        type: 'dashboard'
+      },
+      'da-high-value-crops': {
+        title: 'DA High Value Crops Dashboard',
+        type: 'dashboard'
+      },
+      'da-livestock-ops': {
+        title: 'DA Livestock Operations Dashboard',
+        type: 'dashboard'
+      },
+      'da-fertilizer': {
+        title: 'Fertilizer Distribution Dashboard',
+        type: 'dashboard'
+      },
+      'da-seeds': {
+        title: 'Seeds & Planting Materials Dashboard',
+        type: 'dashboard'
+      },
+      'da-machinery': {
+        title: 'Farm Machinery Dashboard',
+        type: 'dashboard'
+      },
+      'da-farmer-training': {
+        title: 'Farmer Training Programs Dashboard',
+        type: 'dashboard'
+      },
+      'da-extension-coverage': {
+        title: 'Extension Service Coverage Dashboard',
+        type: 'dashboard'
+      },
+      'da-irrigation-projects': {
+        title: 'Irrigation Projects Dashboard',
+        type: 'dashboard'
+      },
+      'da-postharvest': {
+        title: 'Post-Harvest Facilities Dashboard',
+        type: 'dashboard'
+      },
+      'da-damage-assessment': {
+        title: 'Crop Damage Assessment Dashboard',
+        type: 'dashboard'
+      },
+      'da-climate-adaptation': {
+        title: 'Climate Adaptation Programs Dashboard',
+        type: 'dashboard'
+      },
+      'da-acpc-loans': {
+        title: 'ACPC Loan Programs Dashboard',
+        type: 'dashboard'
+      },
+      'da-sure-aid': {
+        title: 'SURE Aid & Calamity Loans Dashboard',
+        type: 'dashboard'
+      },
+      'da-regional-ops': {
+        title: 'Regional Operations Map',
+        type: 'map'
+      },
+      'da-project-sites': {
+        title: 'Project Site Locations',
+        type: 'map'
+      },
+      'da-farmer-registry': {
+        title: 'Farmer Registry',
+        type: 'map'
+      },
+      'da-farm-parcels': {
+        title: 'Farm Parcel Database',
+        type: 'map'
+      },
+      'da-monthly-ops': {
+        title: 'Monthly Operations Report',
+        type: 'table'
+      },
+      'da-program-status': {
+        title: 'Program Status Tables',
+        type: 'table'
+      },
+      'da-budget-utilization': {
+        title: 'Budget Utilization Dashboard',
+        type: 'dashboard'
+      }
+    };
+  </script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dropdown.js"></script>
+  <script src="assets/js/embed.js"></script>
+</body>
+
+</html>

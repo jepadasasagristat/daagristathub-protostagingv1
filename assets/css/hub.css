@@ -1,0 +1,40 @@
+/* ==========================================================================
+   DA AgriStat Hub — hub.css
+   PSA/DA hub shared styles
+   ========================================================================== */
+
+.hub-page {
+  padding-top: var(--hub-nav-total);
+  min-height: 100vh;
+  background: var(--color-light);
+}
+
+.hub-content {
+  position: relative;
+  min-height: calc(100vh - var(--hub-nav-total));
+}
+
+/* Hub accent theming */
+.hub-page--psa .nav-hub-primary {
+  background: var(--color-psa);
+}
+
+.hub-page--da .nav-hub-primary {
+  background: var(--color-da);
+}
+
+.hub-page--psa .mega-dropdown {
+  border-top-color: var(--color-psa);
+}
+
+.hub-page--da .mega-dropdown {
+  border-top-color: var(--color-da);
+}
+
+.hub-page--psa .embed-placeholder__logo {
+  color: var(--color-psa);
+}
+
+.hub-page--da .embed-placeholder__logo {
+  color: var(--color-da);
+}
