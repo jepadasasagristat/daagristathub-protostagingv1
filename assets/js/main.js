@@ -1,6 +1,14 @@
 /**
  * DA AgriStat Hub — main.js
- * Global: mobile nav, scroll effects, parallax, page load
+ * Global behaviors for index.html + hub pages
+ *
+ * Sections:
+ * - initPageLoad()       → GLOBAL: body fade-in
+ * - initNavScroll()      → HOME: .nav-main scroll shrink (index.html)
+ * - initMobileNav()      → HOME: .nav-main drawer (index.html)
+ * - initParallax()       → HOME: hero parallax (index.html)
+ * - initScrollAnimations() → HOME: .animate-on-scroll (index.html)
+ * - initHubMobileNav()   → NAV-MOBILE: #hub-mobile-nav toggle (hub pages)
  */
 
 (function () {
@@ -108,7 +116,7 @@
     elements.forEach((el) => observer.observe(el));
   }
 
-  /* Hub mobile nav toggle */
+  /* NAV-MOBILE: Hub drawer open/close (psa.html, da-ops.html) */
   function initHubMobileNav() {
     const toggle = document.querySelector('.nav-hub-primary__toggle');
     const mobileNav = document.querySelector('.nav-hub-mobile');

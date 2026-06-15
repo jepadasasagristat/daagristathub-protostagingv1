@@ -1,10 +1,17 @@
 /* ==========================================================================
    DA AgriStat Hub — nav.css
-   Global navigation & hub navigation
+   Navigation styles for index.html + hub pages (psa.html, da-ops.html)
+
+   Label map (matches HTML comments):
+   - LAYOUT: Main nav     → .nav-main (index.html)
+   - LAYOUT: Hub brand    → .nav-hub-brand
+   - LAYOUT: Hub primary  → .nav-hub-primary, .mega-dropdown
+   - NAV: Subgroups       → .nav-subgroup (collapsible accordion)
+   - NAV-MOBILE: Drawer   → .nav-hub-mobile (#hub-mobile-nav)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Main Site Navigation (Landing Page)
+   LAYOUT: Main navigation (index.html — .nav-main)
    -------------------------------------------------------------------------- */
 .nav-main {
   position: fixed;
@@ -236,6 +243,20 @@
 
 .nav-hub-brand__breadcrumb .separator {
   color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.nav-hub-brand__crumb {
+  color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}
+
+.nav-hub-brand__breadcrumb [aria-current="page"] {
+  color: var(--color-white);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .nav-hub-brand__back {
@@ -447,6 +468,94 @@
   margin-top: 0.125rem;
 }
 
+/* --------------------------------------------------------------------------
+   NAV: Collapsible subgroups (.nav-subgroup — accordion within category)
+   -------------------------------------------------------------------------- */
+.nav-subgroup {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.nav-subgroup:last-child {
+  border-bottom: none;
+}
+
+.nav-subgroup__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1.5rem 0.75rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  text-align: left;
+  background: transparent;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.mega-dropdown__desktop-subitems-panel .nav-subgroup__toggle {
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-hub-mobile__subitems .nav-subgroup__toggle {
+  padding: 0.75rem 1.5rem 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.nav-subgroup__toggle:hover,
+.nav-subgroup.is-open .nav-subgroup__toggle {
+  color: var(--color-primary);
+  background: rgba(27, 77, 46, 0.06);
+}
+
+.nav-subgroup__toggle::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+  opacity: 0.7;
+}
+
+.nav-subgroup.is-open .nav-subgroup__toggle::after {
+  transform: rotate(45deg);
+}
+
+.nav-subgroup__items {
+  display: none;
+  padding-bottom: 0.25rem;
+}
+
+.nav-subgroup.is-open .nav-subgroup__items {
+  display: block;
+}
+
+.nav-subgroup__placeholder {
+  margin: 0;
+  padding: 1rem 1.5rem 1rem 2rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  font-style: italic;
+  background: rgba(27, 77, 46, 0.04);
+  border-left: 3px solid var(--color-accent);
+}
+
+.mega-dropdown__desktop-subitems-panel .nav-subgroup__placeholder {
+  padding: 1rem 1.5rem;
+}
+
+.nav-hub-mobile__subitems .nav-subgroup__placeholder {
+  padding: 1rem 1.5rem 1rem 2rem;
+}
+
 /* Desktop mega-dropdown layout */
 .mega-dropdown__desktop {
   display: none;
@@ -507,7 +616,9 @@
   color: var(--color-muted);
 }
 
-/* Hub mobile accordion nav */
+/* --------------------------------------------------------------------------
+   NAV-MOBILE: Hub slide-out drawer (#hub-mobile-nav, <768px)
+   -------------------------------------------------------------------------- */
 .nav-hub-mobile {
   display: block;
   position: fixed;
@@ -543,16 +654,75 @@
 }
 
 .nav-hub-mobile__content {
-  padding: 0.5rem 0 1rem;
+  padding: 0;
   background: var(--color-light);
-  max-height: min(320px, 45vh);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
 }
 
-.nav-hub-mobile__content .mega-dropdown__subitem {
-  padding: 0.75rem 1.5rem;
+.nav-hub-mobile__category {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-hub-mobile__category:last-child {
+  border-bottom: none;
+}
+
+.nav-hub-mobile__category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.875rem 1.25rem 0.875rem 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--color-dark);
+  text-align: left;
+  background: var(--color-white);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-hub-mobile__category-btn::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  transform: rotate(-45deg);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+.nav-hub-mobile__category-btn[aria-expanded="true"] {
+  background: var(--color-light);
+  color: var(--color-primary);
+}
+
+.nav-hub-mobile__category-btn[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.nav-hub-mobile__subitems {
+  display: none;
+  padding: 0.25rem 0 0.5rem;
+  background: var(--color-light);
+}
+
+.nav-hub-mobile__subitems.is-open {
+  display: block;
+}
+
+.nav-hub-mobile__subitems .mega-dropdown__subitem {
+  display: block;
+  padding: 0.625rem 1.5rem 0.625rem 2rem;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.nav-hub-mobile__subitems .mega-dropdown__subitem:hover,
+.nav-hub-mobile__subitems .mega-dropdown__subitem.is-active {
+  color: var(--color-primary);
+  background: rgba(27, 77, 46, 0.08);
 }
 
 /* Responsive */

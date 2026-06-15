@@ -7,6 +7,7 @@
   <meta name="description"
     content="DA Operational Hub — Department of Agriculture programs, projects, and field operations data">
   <title>DA Operational Hub | DA AgriStat Hub</title>
+  <link rel="icon" href="assets/images/da-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/nav.css">
   <link rel="stylesheet" href="assets/css/hub.css">
@@ -15,7 +16,7 @@
 
 <body class="hub-page hub-page--da">
 
-  <!-- Brand Bar -->
+  <!-- LAYOUT: Brand bar (breadcrumb + back link) -->
   <header class="nav-hub-brand">
     <div class="container nav-hub-brand__inner">
       <div class="nav-hub-brand__left">
@@ -23,11 +24,7 @@
           <img src="assets/images/agristat-logo.svg" alt="" width="32" height="32">
           <span>AgriStat Hub</span>
         </a>
-        <nav class="nav-hub-brand__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="separator" aria-hidden="true">›</span>
-          <span aria-current="page">DA Operational Datasets</span>
-        </nav>
+        <nav class="nav-hub-brand__breadcrumb" aria-label="Breadcrumb" data-hub-name="DA Operational Datasets"></nav>
       </div>
       <a href="index.html" class="nav-hub-brand__back">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -38,7 +35,9 @@
     </div>
   </header>
 
-  <!-- Primary Hub Nav -->
+  <!-- Primary Hub Nav
+       Labels: NAV = desktop top bar (≥768px) | NAV-MOBILE = slide-out drawer (<768px)
+       Edit both when adding/removing menu links. data-hash must match EMBED_REGISTRY. -->
   <nav class="nav-hub-primary nav-hub-primary--da" aria-label="DA hub navigation">
     <div class="container nav-hub-primary__inner">
       <button class="nav-hub-primary__toggle" aria-label="Open navigation menu" aria-expanded="false"
@@ -51,7 +50,10 @@
       </button>
 
       <div class="nav-hub-primary__items">
-        <!-- Dashboards -->
+
+        <!-- ══════════════════════════════════════════════════════════
+             NAV: Dashboards (#dropdown-dashboards)
+             ══════════════════════════════════════════════════════════ -->
         <div class="nav-hub-primary__item">
           <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
             aria-controls="dropdown-dashboards">
@@ -61,8 +63,12 @@
             </svg>
           </button>
           <div class="mega-dropdown" id="dropdown-dashboards" role="menu">
+
+            <!-- NAV: Dashboards › Mobile accordion -->
             <div class="mega-dropdown__inner">
               <div class="mega-dropdown__categories">
+
+                <!-- NAV: Dashboards › Category: Production -->
                 <div class="mega-dropdown__category">
                   <button class="mega-dropdown__category-btn" data-category="production" aria-expanded="false">
                     Production
@@ -70,235 +76,611 @@
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="production">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring<span
-                        class="commodity">Palay · Milled Rice</span></a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring<span
-                        class="commodity">Yellow Corn · White Corn</span></a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-high-value-crops">High Value Crops<span
-                        class="commodity">Vegetables · Fruits</span></a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-livestock-ops">Livestock Operations<span
-                        class="commodity">Cattle · Hog · Poultry</span></a>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
+
+                <!-- NAV: Dashboards › Category: Mechanization -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="input" aria-expanded="false">
-                    Input Supply
+                  <button class="mega-dropdown__category-btn" data-category="mechanization" aria-expanded="false">
+                    Mechanization
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="input">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution<span
-                        class="commodity">Subsidy Programs</span></a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-seeds">Seeds &amp; Planting Materials<span
-                        class="commodity">Certified Seeds</span></a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-machinery">Farm Machinery<span
-                        class="commodity">Tractors · Harvesters</span></a>
+                  <div class="mega-dropdown__subitems" data-category="mechanization">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
-                <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="extension" aria-expanded="false">
-                    Extension &amp; Training
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 18l6-6-6-6" /></svg>
-                  </button>
-                  <div class="mega-dropdown__subitems" data-category="extension">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training
-                      Programs</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-extension-coverage">Extension Service
-                      Coverage</a>
-                  </div>
-                </div>
+
+                <!-- NAV: Dashboards › Category: Irrigation Network and Infrastructure -->
                 <div class="mega-dropdown__category">
                   <button class="mega-dropdown__category-btn" data-category="irrigation" aria-expanded="false">
-                    Irrigation &amp; Infrastructure
+                    Irrigation Network and Infrastructure
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="irrigation">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation
-                      Projects</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-postharvest">Post-Harvest Facilities</a>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
+
+                <!-- NAV: Dashboards › Category: Logistics -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="disaster" aria-expanded="false">
-                    Disaster &amp; Climate
+                  <button class="mega-dropdown__category-btn" data-category="logistics" aria-expanded="false">
+                    Logistics
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="disaster">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage
-                      Assessment</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-climate-adaptation">Climate Adaptation
-                      Programs</a>
+                  <div class="mega-dropdown__subitems" data-category="logistics">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
+
+                <!-- NAV: Dashboards › Category: Marketing and Trade -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="lending" aria-expanded="false">
-                    Lending &amp; Credit
+                  <button class="mega-dropdown__category-btn" data-category="trade" aria-expanded="false">
+                    Marketing and Trade
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="lending">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-sure-aid">SURE Aid &amp; Calamity Loans</a>
+                  <div class="mega-dropdown__subitems" data-category="trade">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Dashboards › Category: Policy and Regulations -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="policy" aria-expanded="false">
+                    Policy and Regulations
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="policy">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Dashboards › Category: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="digital" aria-expanded="false">
+                    Digital Innovation and Data Management
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="digital">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                  </div>
+                </div>
+
+                <!-- NAV: Dashboards › Category: Credit and Insurance -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="credit" aria-expanded="false">
+                    Credit and Insurance
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="credit">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Dashboards › Category: Program and Project Monitoring -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="program-monitoring" aria-expanded="false">
+                    Program and Project Monitoring
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="program-monitoring">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- NAV: Dashboards › Desktop layout -->
             <div class="mega-dropdown__desktop">
               <div class="mega-dropdown__desktop-categories">
                 <button class="mega-dropdown__desktop-category is-active" data-category="production">Production</button>
-                <button class="mega-dropdown__desktop-category" data-category="input">Input Supply</button>
-                <button class="mega-dropdown__desktop-category" data-category="extension">Extension &amp;
-                  Training</button>
-                <button class="mega-dropdown__desktop-category" data-category="irrigation">Irrigation &amp;
-                  Infrastructure</button>
-                <button class="mega-dropdown__desktop-category" data-category="disaster">Disaster &amp; Climate</button>
-                <button class="mega-dropdown__desktop-category" data-category="lending">Lending &amp; Credit</button>
+                <button class="mega-dropdown__desktop-category" data-category="mechanization">Mechanization</button>
+                <button class="mega-dropdown__desktop-category" data-category="irrigation">Irrigation Network and Infrastructure</button>
+                <button class="mega-dropdown__desktop-category" data-category="logistics">Logistics</button>
+                <button class="mega-dropdown__desktop-category" data-category="trade">Marketing and Trade</button>
+                <button class="mega-dropdown__desktop-category" data-category="policy">Policy and Regulations</button>
+                <button class="mega-dropdown__desktop-category" data-category="digital">Digital Innovation and Data Management</button>
+                <button class="mega-dropdown__desktop-category" data-category="credit">Credit and Insurance</button>
+                <button class="mega-dropdown__desktop-category" data-category="program-monitoring">Program and Project Monitoring</button>
               </div>
               <div class="mega-dropdown__desktop-subitems">
+
+                <!-- NAV: Dashboards › Desktop panel: Production -->
                 <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production">
                   <h4>Production</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring<span
-                      class="commodity">Palay · Milled Rice</span></a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring<span
-                      class="commodity">Yellow Corn · White Corn</span></a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-high-value-crops">High Value Crops<span
-                      class="commodity">Vegetables · Fruits</span></a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-livestock-ops">Livestock Operations<span
-                      class="commodity">Cattle · Hog · Poultry</span></a>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
-                <div class="mega-dropdown__desktop-subitems-panel" data-category="input">
-                  <h4>Input Supply</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution<span
-                      class="commodity">Subsidy Programs</span></a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-seeds">Seeds &amp; Planting Materials<span
-                      class="commodity">Certified Seeds</span></a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-machinery">Farm Machinery<span
-                      class="commodity">Tractors · Harvesters</span></a>
+
+                <!-- NAV: Dashboards › Desktop panel: Mechanization -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="mechanization">
+                  <h4>Mechanization</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
-                <div class="mega-dropdown__desktop-subitems-panel" data-category="extension">
-                  <h4>Extension &amp; Training</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training Programs</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-extension-coverage">Extension Service
-                    Coverage</a>
-                </div>
+
+                <!-- NAV: Dashboards › Desktop panel: Irrigation Network and Infrastructure -->
                 <div class="mega-dropdown__desktop-subitems-panel" data-category="irrigation">
-                  <h4>Irrigation &amp; Infrastructure</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation Projects</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-postharvest">Post-Harvest Facilities</a>
+                  <h4>Irrigation Network and Infrastructure</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
-                <div class="mega-dropdown__desktop-subitems-panel" data-category="disaster">
-                  <h4>Disaster &amp; Climate</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage Assessment</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-climate-adaptation">Climate Adaptation
-                    Programs</a>
+
+                <!-- NAV: Dashboards › Desktop panel: Logistics -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="logistics">
+                  <h4>Logistics</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
-                <div class="mega-dropdown__desktop-subitems-panel" data-category="lending">
-                  <h4>Lending &amp; Credit</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-sure-aid">SURE Aid &amp; Calamity Loans</a>
+
+                <!-- NAV: Dashboards › Desktop panel: Marketing and Trade -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="trade">
+                  <h4>Marketing and Trade</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Dashboards › Desktop panel: Policy and Regulations -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="policy">
+                  <h4>Policy and Regulations</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Dashboards › Desktop panel: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="digital">
+                  <h4>Digital Innovation and Data Management</h4>
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                </div>
+
+                <!-- NAV: Dashboards › Desktop panel: Credit and Insurance -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="credit">
+                  <h4>Credit and Insurance</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Dashboards › Desktop panel: Program and Project Monitoring -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="program-monitoring">
+                  <h4>Program and Project Monitoring</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- GeoMaps -->
+        <!-- ══════════════════════════════════════════════════════════
+             NAV: Geospatial Maps (#dropdown-geomaps)
+             ══════════════════════════════════════════════════════════ -->
         <div class="nav-hub-primary__item">
           <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
             aria-controls="dropdown-geomaps">
-            GeoMaps &amp; Baseline Data
+            Geospatial Maps
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="mega-dropdown" id="dropdown-geomaps" role="menu">
+
+            <!-- NAV: Geospatial Maps › Mobile accordion -->
             <div class="mega-dropdown__inner">
               <div class="mega-dropdown__categories">
+
+                <!-- NAV: Geospatial Maps › Category: Production -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="field-ops" aria-expanded="false">
-                    Field Operations Maps
+                  <button class="mega-dropdown__category-btn" data-category="production-map" aria-expanded="false">
+                    Production
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="field-ops">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
+                  <div class="mega-dropdown__subitems" data-category="production-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
+
+                <!-- NAV: Geospatial Maps › Category: Mechanization -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="baseline" aria-expanded="false">
-                    Baseline Data
+                  <button class="mega-dropdown__category-btn" data-category="mechanization-map" aria-expanded="false">
+                    Mechanization
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="baseline">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-farm-parcels">Farm Parcel Database</a>
+                  <div class="mega-dropdown__subitems" data-category="mechanization-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Irrigation Network and Infrastructure -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="irrigation-map" aria-expanded="false">
+                    Irrigation Network and Infrastructure
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="irrigation-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Logistics -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="logistics-map" aria-expanded="false">
+                    Logistics
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="logistics-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Marketing and Trade -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="trade-map" aria-expanded="false">
+                    Marketing and Trade
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="trade-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Policy and Regulations -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="policy-map" aria-expanded="false">
+                    Policy and Regulations
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="policy-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="digital-map" aria-expanded="false">
+                    Digital Innovation and Data Management
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="digital-map">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-map">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-map">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Credit and Insurance -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="credit-map" aria-expanded="false">
+                    Credit and Insurance
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="credit-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Category: Program and Project Monitoring -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="program-monitoring-map" aria-expanded="false">
+                    Program and Project Monitoring
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="program-monitoring-map">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- NAV: Geospatial Maps › Desktop layout -->
             <div class="mega-dropdown__desktop">
               <div class="mega-dropdown__desktop-categories">
-                <button class="mega-dropdown__desktop-category is-active" data-category="field-ops">Field Operations
-                  Maps</button>
-                <button class="mega-dropdown__desktop-category" data-category="baseline">Baseline Data</button>
+                <button class="mega-dropdown__desktop-category is-active" data-category="production-map">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="mechanization-map">Mechanization</button>
+                <button class="mega-dropdown__desktop-category" data-category="irrigation-map">Irrigation Network and Infrastructure</button>
+                <button class="mega-dropdown__desktop-category" data-category="logistics-map">Logistics</button>
+                <button class="mega-dropdown__desktop-category" data-category="trade-map">Marketing and Trade</button>
+                <button class="mega-dropdown__desktop-category" data-category="policy-map">Policy and Regulations</button>
+                <button class="mega-dropdown__desktop-category" data-category="digital-map">Digital Innovation and Data Management</button>
+                <button class="mega-dropdown__desktop-category" data-category="credit-map">Credit and Insurance</button>
+                <button class="mega-dropdown__desktop-category" data-category="program-monitoring-map">Program and Project Monitoring</button>
               </div>
               <div class="mega-dropdown__desktop-subitems">
-                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="field-ops">
-                  <h4>Field Operations Maps</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Production -->
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-map">
+                  <h4>Production</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
-                <div class="mega-dropdown__desktop-subitems-panel" data-category="baseline">
-                  <h4>Baseline Data</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-farm-parcels">Farm Parcel Database</a>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Mechanization -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="mechanization-map">
+                  <h4>Mechanization</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Irrigation Network and Infrastructure -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="irrigation-map">
+                  <h4>Irrigation Network and Infrastructure</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Logistics -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="logistics-map">
+                  <h4>Logistics</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Marketing and Trade -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="trade-map">
+                  <h4>Marketing and Trade</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Policy and Regulations -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="policy-map">
+                  <h4>Policy and Regulations</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="digital-map">
+                  <h4>Digital Innovation and Data Management</h4>
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-map">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-map">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Credit and Insurance -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="credit-map">
+                  <h4>Credit and Insurance</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Geospatial Maps › Desktop panel: Program and Project Monitoring -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="program-monitoring-map">
+                  <h4>Program and Project Monitoring</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Raw Data -->
+        <!-- ══════════════════════════════════════════════════════════
+             NAV: Raw Data Tables (#dropdown-raw)
+             ══════════════════════════════════════════════════════════ -->
         <div class="nav-hub-primary__item">
-          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-raw">
+          <button class="nav-hub-primary__btn" aria-expanded="false" aria-haspopup="true"
+            aria-controls="dropdown-raw">
             Raw Data Tables
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="mega-dropdown" id="dropdown-raw" role="menu">
+
+            <!-- NAV: Raw Data Tables › Mobile accordion -->
             <div class="mega-dropdown__inner">
               <div class="mega-dropdown__categories">
+
+                <!-- NAV: Raw Data Tables › Category: Production -->
                 <div class="mega-dropdown__category">
-                  <button class="mega-dropdown__category-btn" data-category="tables" aria-expanded="false">
-                    Operational Reports
+                  <button class="mega-dropdown__category-btn" data-category="production-table" aria-expanded="false">
+                    Production
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
-                  <div class="mega-dropdown__subitems" data-category="tables">
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
-                    <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+                  <div class="mega-dropdown__subitems" data-category="production-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Mechanization -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="mechanization-table" aria-expanded="false">
+                    Mechanization
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="mechanization-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Irrigation Network and Infrastructure -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="irrigation-table" aria-expanded="false">
+                    Irrigation Network and Infrastructure
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="irrigation-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Logistics -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="logistics-table" aria-expanded="false">
+                    Logistics
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="logistics-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Marketing and Trade -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="trade-table" aria-expanded="false">
+                    Marketing and Trade
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="trade-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Policy and Regulations -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="policy-table" aria-expanded="false">
+                    Policy and Regulations
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="policy-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="digital-table" aria-expanded="false">
+                    Digital Innovation and Data Management
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="digital-table">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-table">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-table">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Credit and Insurance -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="credit-table" aria-expanded="false">
+                    Credit and Insurance
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="credit-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                  </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Category: Program and Project Monitoring -->
+                <div class="mega-dropdown__category">
+                  <button class="mega-dropdown__category-btn" data-category="program-monitoring-table" aria-expanded="false">
+                    Program and Project Monitoring
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 18l6-6-6-6" /></svg>
+                  </button>
+                  <div class="mega-dropdown__subitems" data-category="program-monitoring-table">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- NAV: Raw Data Tables › Desktop layout -->
             <div class="mega-dropdown__desktop">
               <div class="mega-dropdown__desktop-categories">
-                <button class="mega-dropdown__desktop-category is-active" data-category="tables">Operational
-                  Reports</button>
+                <button class="mega-dropdown__desktop-category is-active" data-category="production-table">Production</button>
+                <button class="mega-dropdown__desktop-category" data-category="mechanization-table">Mechanization</button>
+                <button class="mega-dropdown__desktop-category" data-category="irrigation-table">Irrigation Network and Infrastructure</button>
+                <button class="mega-dropdown__desktop-category" data-category="logistics-table">Logistics</button>
+                <button class="mega-dropdown__desktop-category" data-category="trade-table">Marketing and Trade</button>
+                <button class="mega-dropdown__desktop-category" data-category="policy-table">Policy and Regulations</button>
+                <button class="mega-dropdown__desktop-category" data-category="digital-table">Digital Innovation and Data Management</button>
+                <button class="mega-dropdown__desktop-category" data-category="credit-table">Credit and Insurance</button>
+                <button class="mega-dropdown__desktop-category" data-category="program-monitoring-table">Program and Project Monitoring</button>
               </div>
               <div class="mega-dropdown__desktop-subitems">
-                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="tables">
-                  <h4>Operational Reports</h4>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
-                  <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Production -->
+                <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-table">
+                  <h4>Production</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Mechanization -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="mechanization-table">
+                  <h4>Mechanization</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Irrigation Network and Infrastructure -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="irrigation-table">
+                  <h4>Irrigation Network and Infrastructure</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Logistics -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="logistics-table">
+                  <h4>Logistics</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Marketing and Trade -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="trade-table">
+                  <h4>Marketing and Trade</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Policy and Regulations -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="policy-table">
+                  <h4>Policy and Regulations</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Digital Innovation and Data Management -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="digital-table">
+                  <h4>Digital Innovation and Data Management</h4>
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-table">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-table">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Credit and Insurance -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="credit-table">
+                  <h4>Credit and Insurance</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+                </div>
+
+                <!-- NAV: Raw Data Tables › Desktop panel: Program and Project Monitoring -->
+                <div class="mega-dropdown__desktop-subitems-panel" data-category="program-monitoring-table">
+                  <h4>Program and Project Monitoring</h4>
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
                 </div>
               </div>
             </div>
@@ -308,48 +690,301 @@
     </div>
   </nav>
 
-  <!-- Mobile Hub Nav -->
+  <!-- ════════════════════════════════════════════════════════════════
+       NAV-MOBILE: Slide-out drawer (#hub-mobile-nav, <768px)
+       Mirror desktop nav links here when editing menu items.
+       ════════════════════════════════════════════════════════════════ -->
   <nav class="nav-hub-mobile" id="hub-mobile-nav" aria-label="Mobile hub navigation">
+
+    <!-- NAV-MOBILE: Section — Dashboards -->
     <div class="nav-hub-mobile__section">
       <button class="nav-hub-mobile__section-btn" aria-expanded="false">Dashboards</button>
       <div class="nav-hub-mobile__content" style="display:none">
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-programs">Rice Program Monitoring</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-programs">Corn Program Monitoring</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-fertilizer">Fertilizer Distribution</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-training">Farmer Training Programs</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-irrigation-projects">Irrigation Projects</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-damage-assessment">Crop Damage Assessment</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-acpc-loans">ACPC Loan Programs</a>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Production -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Production</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Mechanization -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Mechanization</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Irrigation Network and Infrastructure -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Irrigation Network and Infrastructure</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Logistics -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Logistics</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Marketing and Trade -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Marketing and Trade</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Policy and Regulations -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Policy and Regulations</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Digital Innovation and Data Management -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Digital Innovation and Data Management</button>
+          <div class="nav-hub-mobile__subitems">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Credit and Insurance -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Credit and Insurance</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Dashboards › Category: Program and Project Monitoring -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Program and Project Monitoring</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- NAV-MOBILE: Section — Geospatial Maps -->
     <div class="nav-hub-mobile__section">
-      <button class="nav-hub-mobile__section-btn" aria-expanded="false">GeoMaps &amp; Baseline Data</button>
+      <button class="nav-hub-mobile__section-btn" aria-expanded="false">Geospatial Maps</button>
       <div class="nav-hub-mobile__content" style="display:none">
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-regional-ops">Regional Operations Map</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-project-sites">Project Site Locations</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-farmer-registry">Farmer Registry</a>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Production -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Production</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Mechanization -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Mechanization</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Irrigation Network and Infrastructure -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Irrigation Network and Infrastructure</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Logistics -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Logistics</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Marketing and Trade -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Marketing and Trade</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Policy and Regulations -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Policy and Regulations</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Digital Innovation and Data Management -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Digital Innovation and Data Management</button>
+          <div class="nav-hub-mobile__subitems">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-map">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-map">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Credit and Insurance -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Credit and Insurance</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Geospatial Maps › Category: Program and Project Monitoring -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Program and Project Monitoring</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- NAV-MOBILE: Section — Raw Data Tables -->
     <div class="nav-hub-mobile__section">
       <button class="nav-hub-mobile__section-btn" aria-expanded="false">Raw Data Tables</button>
       <div class="nav-hub-mobile__content" style="display:none">
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-monthly-ops">Monthly Operations Report</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-program-status">Program Status Tables</a>
-        <a href="#" class="mega-dropdown__subitem" data-hash="da-budget-utilization">Budget Utilization</a>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Production -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Production</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Mechanization -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Mechanization</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Irrigation Network and Infrastructure -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Irrigation Network and Infrastructure</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Logistics -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Logistics</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Marketing and Trade -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Marketing and Trade</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Policy and Regulations -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Policy and Regulations</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Digital Innovation and Data Management -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Digital Innovation and Data Management</button>
+          <div class="nav-hub-mobile__subitems">
+                <div class="nav-subgroup is-open">
+                  <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Disaster Risk Reduction</button>
+                  <div class="nav-subgroup__items">
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-rice-planting-harvesting-table">Rice Planting and Harvesting</a>
+                <a href="#" class="mega-dropdown__subitem" data-hash="da-corn-planting-harvesting-table">Corn Planting and Harvesting</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Credit and Insurance -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Credit and Insurance</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
+
+        <!-- NAV-MOBILE: Raw Data Tables › Category: Program and Project Monitoring -->
+        <div class="nav-hub-mobile__category">
+          <button class="nav-hub-mobile__category-btn" aria-expanded="false">Program and Project Monitoring</button>
+          <div class="nav-hub-mobile__subitems">
+                <p class="nav-subgroup__placeholder" role="status">Subgroups for this category are pending update.</p>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Dashboard Viewer -->
+  <!-- EMBED VIEWER: Dashboard / map / table iframe container -->
   <main class="hub-content">
     <div class="embed-container">
       <div class="embed-placeholder">
-        <div class="embed-placeholder__logo">
-          <img src="assets/images/da-logo.svg" alt="" width="80" height="80">
+        <div class="embed-placeholder__card">
+          <div class="embed-placeholder__header">
+            <div class="embed-placeholder__logo">
+              <img src="assets/images/da-logo.svg" alt="" width="64" height="64">
+            </div>
+            <span class="embed-placeholder__badge">Getting Started</span>
+            <h2>Welcome to the DA Operational Datasets Section</h2>
+            <p class="embed-placeholder__lead">Access operational datasets from Department of Agriculture programs —
+              field operations, extension services, infrastructure, and program monitoring tools.</p>
+          </div>
+
+          <ol class="embed-placeholder__steps">
+            <li class="embed-placeholder__step">
+              <span class="embed-placeholder__step-num" aria-hidden="true">1</span>
+              <span class="embed-placeholder__step-text">Choose a section from the <strong>navigation menu above</strong>
+                — Dashboards, Geospatial Maps, or Raw Data Tables</span>
+            </li>
+            <li class="embed-placeholder__step">
+              <span class="embed-placeholder__step-num" aria-hidden="true">2</span>
+              <span class="embed-placeholder__step-text">Select the <strong>commodity, category, or report</strong> you want to
+                explore</span>
+            </li>
+            <li class="embed-placeholder__step">
+              <span class="embed-placeholder__step-num" aria-hidden="true">3</span>
+              <span class="embed-placeholder__step-text">Your selection loads here — powered by
+                <strong>Looker Studio</strong> / <strong>Power BI</strong> / <strong>QGIS</strong></span>
+            </li>
+          </ol>
         </div>
-        <h2>Select a Dashboard</h2>
-        <p>Choose an operational dataset from the navigation menu above to load an interactive dashboard.</p>
-        <p class="embed-placeholder__hint">DA Operational Hub · Looker Studio &amp; Power BI</p>
       </div>
 
       <div class="embed-skeleton" aria-hidden="true">
@@ -400,96 +1035,37 @@
     </div>
   </main>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       EMBED REGISTRY — maps nav data-hash values to embed config
+       Add url: '...' for live embeds; omit url for integration-pending
+       ════════════════════════════════════════════════════════════════ -->
   <script>
-    window.EMBED_REGISTRY = {
-      'da-rice-programs': {
-        title: 'DA Rice Program Monitoring',
+window.EMBED_REGISTRY = {
+
+      'da-corn-planting-harvesting': {
+        title: 'Corn Planting and Harvesting',
         type: 'dashboard'
       },
-      'da-corn-programs': {
-        title: 'DA Corn Program Monitoring',
-        type: 'dashboard'
-      },
-      'da-high-value-crops': {
-        title: 'DA High Value Crops Dashboard',
-        type: 'dashboard'
-      },
-      'da-livestock-ops': {
-        title: 'DA Livestock Operations Dashboard',
-        type: 'dashboard'
-      },
-      'da-fertilizer': {
-        title: 'Fertilizer Distribution Dashboard',
-        type: 'dashboard'
-      },
-      'da-seeds': {
-        title: 'Seeds & Planting Materials Dashboard',
-        type: 'dashboard'
-      },
-      'da-machinery': {
-        title: 'Farm Machinery Dashboard',
-        type: 'dashboard'
-      },
-      'da-farmer-training': {
-        title: 'Farmer Training Programs Dashboard',
-        type: 'dashboard'
-      },
-      'da-extension-coverage': {
-        title: 'Extension Service Coverage Dashboard',
-        type: 'dashboard'
-      },
-      'da-irrigation-projects': {
-        title: 'Irrigation Projects Dashboard',
-        type: 'dashboard'
-      },
-      'da-postharvest': {
-        title: 'Post-Harvest Facilities Dashboard',
-        type: 'dashboard'
-      },
-      'da-damage-assessment': {
-        title: 'Crop Damage Assessment Dashboard',
-        type: 'dashboard'
-      },
-      'da-climate-adaptation': {
-        title: 'Climate Adaptation Programs Dashboard',
-        type: 'dashboard'
-      },
-      'da-acpc-loans': {
-        title: 'ACPC Loan Programs Dashboard',
-        type: 'dashboard'
-      },
-      'da-sure-aid': {
-        title: 'SURE Aid & Calamity Loans Dashboard',
-        type: 'dashboard'
-      },
-      'da-regional-ops': {
-        title: 'Regional Operations Map',
+      'da-corn-planting-harvesting-map': {
+        title: 'Corn Planting and Harvesting',
         type: 'map'
       },
-      'da-project-sites': {
-        title: 'Project Site Locations',
-        type: 'map'
-      },
-      'da-farmer-registry': {
-        title: 'Farmer Registry',
-        type: 'map'
-      },
-      'da-farm-parcels': {
-        title: 'Farm Parcel Database',
-        type: 'map'
-      },
-      'da-monthly-ops': {
-        title: 'Monthly Operations Report',
+      'da-corn-planting-harvesting-table': {
+        title: 'Corn Planting and Harvesting',
         type: 'table'
       },
-      'da-program-status': {
-        title: 'Program Status Tables',
+      'da-rice-planting-harvesting': {
+        title: 'Rice Planting and Harvesting',
+        type: 'dashboard'
+      },
+      'da-rice-planting-harvesting-map': {
+        title: 'Rice Planting and Harvesting',
+        type: 'map'
+      },
+      'da-rice-planting-harvesting-table': {
+        title: 'Rice Planting and Harvesting',
         type: 'table'
       },
-      'da-budget-utilization': {
-        title: 'Budget Utilization Dashboard',
-        type: 'dashboard'
-      }
     };
   </script>
   <script src="assets/js/main.js"></script>

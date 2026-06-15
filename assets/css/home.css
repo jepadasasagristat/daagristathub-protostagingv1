@@ -1,9 +1,14 @@
 /* ==========================================================================
    DA AgriStat Hub — home.css
-   Landing page-specific styles
+   HOME page sections (index.html)
+
+   Label map:
+   - HOME: About section    → .about-section
+   - HOME: Dataset portals  → .datasets-section, .portal-card
+   - HOME: Contact section  → .contact-section
    ========================================================================== */
 
-/* About & Contact sections */
+/* HOME: About & Contact sections */
 .contact-section {
   background: var(--color-white);
 }
@@ -75,7 +80,7 @@
   font-size: 0.875rem;
 }
 
-/* Dataset Selection */
+/* HOME: Dataset portal cards */
 .datasets-section {
   background: var(--color-light);
 }
@@ -101,7 +106,7 @@
   gap: 2rem;
 }
 
-/* Portal Cards */
+/* HOME: Portal card components (PSA + DA) */
 .portal-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -200,7 +205,7 @@
   transform: translateX(4px);
 }
 
-/* Contact */
+/* HOME: Contact info grid */
 .contact-section__grid {
   display: grid;
   grid-template-columns: 1fr;

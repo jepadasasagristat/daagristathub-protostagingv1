@@ -1,6 +1,13 @@
 /**
  * DA AgriStat Hub — embed.js
- * Hash → embed URL mapping, skeleton loader, iframe injection, fullscreen
+ * EMBED VIEWER: hash routing → live iframe | pending | placeholder
+ *
+ * Reads window.EMBED_REGISTRY from psa.html / da-ops.html
+ * Sections:
+ * - loadEmbed()              → resolve hash to embed state
+ * - showIntegrationPending() → EMBED: pending (no url in registry)
+ * - loadLiveEmbed()          → EMBED: live iframe
+ * - initFullscreen()         → EMBED: fullscreen toggle
  */
 
 (function () {
@@ -9,6 +16,7 @@
   const EMBED_REGISTRY = window.EMBED_REGISTRY || {};
   const PENDING_DELAY_MS = 400;
 
+  /* ── EMBED: Type labels for pending panel (dashboard | map | table) ── */
   const TYPE_META = {
     dashboard: {
       badge: 'Dashboard',
@@ -24,6 +32,7 @@
     },
   };
 
+  /* ── EMBED: UI state helpers (placeholder / skeleton / pending / iframe) ── */
   function getElements() {
     return {
       container: document.querySelector('.embed-container'),
@@ -149,9 +158,148 @@
     loadLiveEmbed(config);
   }
 
+  /* ── Breadcrumb: Home › Hub › section › category › subgroup › item ── */
+  function normalizeLabel(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function getLinkLabel(link) {
+    const clone = link.cloneNode(true);
+    clone.querySelectorAll('.commodity').forEach((el) => el.remove());
+    return normalizeLabel(clone.textContent);
+  }
+
+  function getSectionFromDropdown(dropdown) {
+    const btn = dropdown?.closest('.nav-hub-primary__item')?.querySelector('.nav-hub-primary__btn');
+    return normalizeLabel(btn?.textContent);
+  }
+
+  function getCategoryFromDesktopPanel(panel) {
+    const categoryId = panel?.dataset.category;
+    const dropdown = panel?.closest('.mega-dropdown');
+    const catBtn = dropdown?.querySelector(
+      `.mega-dropdown__desktop-category[data-category="${categoryId}"]`
+    );
+    if (catBtn) return normalizeLabel(catBtn.textContent);
+    return normalizeLabel(panel?.querySelector('h4')?.textContent);
+  }
+
+  function trailFromLink(link) {
+    const mobileSection = link.closest('.nav-hub-mobile__section');
+    const megaCategory = link.closest('.mega-dropdown__category');
+    const desktopPanel = link.closest('.mega-dropdown__desktop-subitems-panel');
+    const mobileCategory = link.closest('.nav-hub-mobile__category');
+    const subgroup = normalizeLabel(
+      link.closest('.nav-subgroup')?.querySelector('.nav-subgroup__toggle')?.textContent
+    );
+
+    let section = '';
+    let category = '';
+
+    if (mobileSection) {
+      section = normalizeLabel(
+        mobileSection.querySelector('.nav-hub-mobile__section-btn')?.textContent
+      );
+      category = normalizeLabel(
+        mobileCategory?.querySelector('.nav-hub-mobile__category-btn')?.textContent
+      );
+    } else if (megaCategory) {
+      section = getSectionFromDropdown(link.closest('.mega-dropdown'));
+      category = normalizeLabel(
+        megaCategory.querySelector('.mega-dropdown__category-btn')?.textContent
+      );
+    } else if (desktopPanel) {
+      section = getSectionFromDropdown(link.closest('.mega-dropdown'));
+      category = getCategoryFromDesktopPanel(desktopPanel);
+    }
+
+    return {
+      section,
+      category,
+      subgroup,
+      subitem: getLinkLabel(link),
+    };
+  }
+
+  function resolveNavTrail(hash) {
+    const links = document.querySelectorAll(`[data-hash="${hash}"]`);
+    let best = null;
+
+    links.forEach((link) => {
+      const trail = trailFromLink(link);
+      if (!trail.subitem) return;
+      if (trail.section && trail.category) {
+        best = trail;
+      } else if (!best) {
+        best = trail;
+      }
+    });
+
+    return best;
+  }
+
+  function appendBreadcrumbPart(nav, node) {
+    const sep = document.createElement('span');
+    sep.className = 'separator';
+    sep.setAttribute('aria-hidden', 'true');
+    sep.textContent = '›';
+    nav.appendChild(sep);
+    nav.appendChild(node);
+  }
+
+  function updateBreadcrumb(hash) {
+    const nav = document.querySelector('.nav-hub-brand__breadcrumb');
+    if (!nav) return;
+
+    const hubName = nav.dataset.hubName || 'Hub';
+    const hubHref = window.location.pathname.split('/').pop() || 'index.html';
+
+    nav.replaceChildren();
+
+    const homeLink = document.createElement('a');
+    homeLink.href = 'index.html';
+    homeLink.textContent = 'Home';
+    nav.appendChild(homeLink);
+
+    if (!hash) {
+      const hubCurrent = document.createElement('span');
+      hubCurrent.setAttribute('aria-current', 'page');
+      hubCurrent.textContent = hubName;
+      appendBreadcrumbPart(nav, hubCurrent);
+      return;
+    }
+
+    const hubLink = document.createElement('a');
+    hubLink.href = hubHref;
+    hubLink.textContent = hubName;
+    appendBreadcrumbPart(nav, hubLink);
+
+    const trail = resolveNavTrail(hash);
+    const registryTitle = EMBED_REGISTRY[hash]?.title;
+    const segments = trail
+      ? [trail.section, trail.category, trail.subgroup, trail.subitem].filter(Boolean)
+      : registryTitle
+        ? [registryTitle]
+        : [hash];
+
+    segments.forEach((label, index) => {
+      const isLast = index === segments.length - 1;
+      const el = document.createElement('span');
+      el.textContent = label;
+      if (isLast) {
+        el.setAttribute('aria-current', 'page');
+      } else {
+        el.className = 'nav-hub-brand__crumb';
+      }
+      appendBreadcrumbPart(nav, el);
+    });
+  }
+
+  /* ── EMBED: Hash routing (#slug → registry lookup) ── */
   function initHashRouting() {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
+      updateBreadcrumb(hash);
       if (hash) {
         loadEmbed(hash);
       } else {

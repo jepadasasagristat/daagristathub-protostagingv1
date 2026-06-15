@@ -1,6 +1,11 @@
 /**
  * DA AgriStat Hub — dropdown.js
- * Mega-dropdown toggles, hover sub-items, keyboard nav, outside click
+ * Mega-dropdown toggles, subgroups, mobile drawer accordion
+ *
+ * Sections:
+ * - initDesktopDropdowns()  → NAV: mega-dropdown (≥768px top bar)
+ * - initSubgroups()           → NAV: collapsible .nav-subgroup accordion
+ * - initHubMobileAccordion()  → NAV-MOBILE: #hub-mobile-nav drawer
  */
 
 (function () {
@@ -8,6 +13,7 @@
 
   let activeDropdown = null;
 
+  /* ── NAV: Mega-dropdown open/close + category activation ── */
   function closeAllDropdowns() {
     document.querySelectorAll('.mega-dropdown.is-open').forEach((dd) => {
       dd.classList.remove('is-open');
@@ -151,20 +157,81 @@
     });
   }
 
+  /* ── Collapsible subgroups (desktop mega-dropdown + mobile drawer) ── */
+  function setSubgroupAccordion(subgroup, willOpen) {
+    const container = subgroup?.parentElement;
+    if (!container) return;
+
+    container.querySelectorAll('.nav-subgroup').forEach((sibling) => {
+      const isOpen = sibling === subgroup && willOpen;
+      sibling.classList.toggle('is-open', isOpen);
+      const toggle = sibling.querySelector('.nav-subgroup__toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  function initSubgroups() {
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.nav-subgroup__toggle');
+      if (!btn) return;
+
+      e.stopPropagation();
+      const subgroup = btn.closest('.nav-subgroup');
+      if (!subgroup) return;
+
+      const willOpen = !subgroup.classList.contains('is-open');
+      setSubgroupAccordion(subgroup, willOpen);
+    });
+  }
+
+  /* ── Mobile drawer: section / category accordion (#hub-mobile-nav) ── */
+  function collapseMobileCategories(content) {
+    content?.querySelectorAll('.nav-hub-mobile__category').forEach((category) => {
+      const subitems = category.querySelector('.nav-hub-mobile__subitems');
+      const catBtn = category.querySelector('.nav-hub-mobile__category-btn');
+      subitems?.classList.remove('is-open');
+      catBtn?.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   function initHubMobileAccordion() {
     const mobileNav = document.querySelector('.nav-hub-mobile');
     if (!mobileNav) return;
 
     mobileNav.querySelectorAll('.nav-hub-mobile__section-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const section = btn.closest('.nav-hub-mobile__section');
         const content = section?.querySelector('.nav-hub-mobile__content');
-        const isOpen = section?.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(isOpen));
+        const willOpen = !section?.classList.contains('is-open');
 
-        if (content) {
-          content.style.display = isOpen ? 'block' : 'none';
-        }
+        mobileNav.querySelectorAll('.nav-hub-mobile__section').forEach((sibling) => {
+          const isOpen = sibling === section && willOpen;
+          sibling.classList.toggle('is-open', isOpen);
+          const sibBtn = sibling.querySelector('.nav-hub-mobile__section-btn');
+          const sibContent = sibling.querySelector('.nav-hub-mobile__content');
+          sibBtn?.setAttribute('aria-expanded', String(isOpen));
+          if (sibContent) sibContent.style.display = isOpen ? 'block' : 'none';
+          if (!isOpen) collapseMobileCategories(sibContent);
+        });
+      });
+    });
+
+    mobileNav.querySelectorAll('.nav-hub-mobile__category-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const category = btn.closest('.nav-hub-mobile__category');
+        const content = category?.closest('.nav-hub-mobile__content');
+        const subitems = category?.querySelector('.nav-hub-mobile__subitems');
+        const willOpen = !subitems?.classList.contains('is-open');
+
+        content?.querySelectorAll('.nav-hub-mobile__category').forEach((sibling) => {
+          const isOpen = sibling === category && willOpen;
+          const sibSubitems = sibling.querySelector('.nav-hub-mobile__subitems');
+          const sibBtn = sibling.querySelector('.nav-hub-mobile__category-btn');
+          sibSubitems?.classList.toggle('is-open', isOpen);
+          sibBtn?.setAttribute('aria-expanded', String(isOpen));
+        });
       });
     });
 
@@ -186,10 +253,12 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initDesktopDropdowns();
+      initSubgroups();
       initHubMobileAccordion();
     });
   } else {
     initDesktopDropdowns();
+    initSubgroups();
     initHubMobileAccordion();
   }
 })();

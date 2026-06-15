@@ -20,6 +20,7 @@ This guide explains how to edit the site, with a focus on **adding dropdown menu
 9. [Other common edits](#9-other-common-edits)
 10. [Checklist before publishing](#10-checklist-before-publishing)
 11. [Troubleshooting](#11-troubleshooting)
+12. [Code labels reference](#12-code-labels-reference)
 
 ---
 
@@ -541,6 +542,51 @@ Use this checklist every time you add or change content:
 | URL hash changes but nothing loads | `EMBED_REGISTRY` script is after `embed.js` | Keep registry `<script>` **before** `embed.js` |
 | Skeleton loader never disappears | Embed URL blocked or invalid | Test URL directly in a new browser tab |
 | Desktop dropdown doesn't open | HTML structure broken | Ensure `.mega-dropdown` is inside `.nav-hub-primary__item` |
+
+---
+
+## 12. Code labels reference
+
+HTML, CSS, and JS use a shared comment prefix system so you can search the codebase quickly.
+
+### HTML comment prefixes
+
+| Prefix | File(s) | Meaning |
+|--------|---------|---------|
+| `LAYOUT:` | All pages | Page chrome (brand bar, nav shell, footer) |
+| `HOME:` | `index.html` | Landing page sections (hero, portals, about, contact) |
+| `NAV:` | `psa.html`, `da-ops.html` | Desktop top-bar mega-dropdown (≥768px) |
+| `NAV-MOBILE:` | `psa.html`, `da-ops.html` | Slide-out drawer menu (<768px) |
+| `EMBED VIEWER:` | Hub pages | Main iframe container (`.hub-content`) |
+| `EMBED REGISTRY` | Hub pages | `window.EMBED_REGISTRY` script block |
+
+**Search examples:** `NAV: Geospatial`, `NAV-MOBILE: Raw Data`, `EMBED REGISTRY`
+
+### Nav label hierarchy
+
+```
+NAV: Dashboards (#dropdown-dashboards)
+  NAV: Dashboards › Category: Production (data-category="production")
+    NAV: Dashboards › Subgroup: Area Harvested        ← PSA only
+  NAV: Dashboards › Desktop panel: Production
+NAV-MOBILE: Section — Dashboards
+  NAV-MOBILE: Dashboards › Category: Production
+```
+
+When adding a menu link, update **both** the matching `NAV:` and `NAV-MOBILE:` blocks, then add the slug under `EMBED REGISTRY`.
+
+### CSS / JS label prefixes
+
+| Prefix | Maps to |
+|--------|---------|
+| `GLOBAL:` | `main.css`, shared utilities |
+| `HOME:` | `hero.css`, `home.css`, `counter.js` (index.html) |
+| `LAYOUT:` | `nav.css`, `hub.css` (page structure) |
+| `NAV:` / `NAV-MOBILE:` | `nav.css`, `dropdown.js` |
+| `EMBED:` | `dashboard.css`, `embed.js` |
+| `THEME:` | `hub.css` (PSA vs DA colors) |
+
+Each CSS file has a **Label map** in its header comment block listing the main selectors for that file.
 
 ---
 

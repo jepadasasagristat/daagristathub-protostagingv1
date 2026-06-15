@@ -1,6 +1,10 @@
 /* ==========================================================================
    DA AgriStat Hub — main.css
-   Variables, reset, typography, utilities
+   Global variables, reset, typography, utilities, footer
+
+   Label map:
+   - GLOBAL: CSS variables  → :root (colors, fonts, nav heights)
+   - GLOBAL: Site footer    → .site-footer (index.html + shared)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&family=Plus+Jakarta+Sans:wght@700;800&display=swap');

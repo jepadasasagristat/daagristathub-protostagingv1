@@ -1,6 +1,9 @@
 /**
  * DA AgriStat Hub — counter.js
- * Hero stat counter animation via IntersectionObserver
+ * HOME: Hero stat ticker animation (index.html — [data-counter])
+ *
+ * Formats: currency | million | hectares | default
+ * Edit stat values in index.html; add new formats here if needed.
  */
 
 (function () {

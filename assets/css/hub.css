@@ -1,8 +1,13 @@
 /* ==========================================================================
    DA AgriStat Hub — hub.css
-   PSA/DA hub shared styles
+   Shared hub page layout (psa.html, da-ops.html)
+
+   Label map:
+   - LAYOUT: Hub page shell  → .hub-page, .hub-content
+   - THEME: PSA / DA accents  → .hub-page--psa, .hub-page--da
    ========================================================================== */
 
+/* LAYOUT: Hub page shell */
 .hub-page {
   padding-top: var(--hub-nav-total);
   min-height: 100vh;
@@ -14,7 +19,7 @@
   min-height: calc(100vh - var(--hub-nav-total));
 }
 
-/* Hub accent theming */
+/* THEME: PSA / DA hub accent colors */
 .hub-page--psa .nav-hub-primary {
   background: var(--color-psa);
 }

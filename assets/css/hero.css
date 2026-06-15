@@ -1,6 +1,11 @@
 /* ==========================================================================
    DA AgriStat Hub — hero.css
-   Full-bleed hero with parallax & stat ticker
+   HOME: Hero section (index.html — .hero, .stat-ticker)
+
+   Label map:
+   - HOME: Hero background  → .hero__bg, .hero__overlay
+   - HOME: Hero content     → .hero__content, .hero__title
+   - HOME: Stat ticker      → .stat-ticker (animated counters)
    ========================================================================== */
 
 .hero {
@@ -44,8 +49,9 @@
   position: relative;
   z-index: 2;
   text-align: center;
+  width: 100%;
+  max-width: 1280px;
   padding: calc(var(--nav-height) + 2rem) 1.25rem 4rem;
-  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -76,25 +82,71 @@
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2.5rem;
-  max-width: 600px;
+  max-width: 780px;
   margin-inline: auto;
 }
 
-/* Stat Ticker */
+/* HOME: Infinite stat ticker carousel */
 .stat-ticker {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  --stat-ticker-visible: 3;
   margin-bottom: 3rem;
 }
 
+.stat-ticker__viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.stat-ticker.is-vertical .stat-ticker__viewport {
+  height: clamp(13.5rem, 38vh, 18rem);
+  touch-action: pan-x;
+}
+
+.stat-ticker__viewport:active {
+  cursor: grabbing;
+}
+
+.stat-ticker__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.45, 0.05, 0.25, 1);
+  will-change: transform;
+}
+
+.stat-ticker.is-vertical .stat-ticker__track {
+  flex-direction: column;
+}
+
+.stat-ticker__track.is-instant,
+.stat-ticker__track.is-dragging {
+  transition: none;
+}
+
 .stat-ticker__item {
-  padding: 1.25rem 1rem;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
+  flex: 0 0 calc(100% / var(--stat-ticker-visible));
+  min-width: 0;
+  min-height: 0;
+  padding: 1rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.stat-ticker.is-vertical .stat-ticker__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.875rem 1rem;
+}
+
+.stat-ticker.is-vertical .stat-ticker__item:last-child {
+  border-bottom: none;
 }
 
 .stat-ticker__value {
@@ -138,26 +190,14 @@
   50% { transform: translateX(-50%) translateY(8px); }
 }
 
-@media (min-width: 480px) {
-  .stat-ticker {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
 @media (min-width: 768px) {
-  .stat-ticker {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+  .stat-ticker__track {
+    height: auto;
   }
 
   .stat-ticker__item {
-    border-radius: 0;
-    background: transparent;
-    backdrop-filter: none;
-    border: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
     padding: 1rem 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .stat-ticker__item:last-child {
@@ -166,6 +206,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .stat-ticker__track {
+    transition: none;
+  }
+
   .hero__scroll {
     animation: none;
   }
