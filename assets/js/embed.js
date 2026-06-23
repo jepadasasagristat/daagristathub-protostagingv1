@@ -8,6 +8,7 @@
  * - showIntegrationPending() → EMBED: pending (no url in registry)
  * - loadLiveEmbed()          → EMBED: live iframe
  * - initFullscreen()         → EMBED: fullscreen toggle
+ * - preliminary notice       → EMBED: live embed data advisory modal
  */
 
 (function () {
@@ -69,6 +70,7 @@
 
   function showPlaceholder() {
     const { placeholder, fullscreenBtn } = getElements();
+    hidePreliminaryNotice();
     removeIframe();
     hideSkeleton();
     hideIntegrationPending();
@@ -80,8 +82,109 @@
     return TYPE_META[type] || TYPE_META.dashboard;
   }
 
+  /* ── EMBED: Preliminary 2026 data notice (live embeds only) ── */
+  let preliminaryNoticeEl = null;
+  let preliminaryNoticeDismiss = null;
+
+  function initPreliminaryNotice() {
+    const { container } = getElements();
+    if (!container || preliminaryNoticeEl) return;
+
+    preliminaryNoticeEl = document.createElement('div');
+    preliminaryNoticeEl.className = 'embed-notice is-hidden';
+    preliminaryNoticeEl.setAttribute('role', 'dialog');
+    preliminaryNoticeEl.setAttribute('aria-modal', 'true');
+    preliminaryNoticeEl.setAttribute('aria-labelledby', 'embed-notice-title');
+    preliminaryNoticeEl.innerHTML =
+      '<div class="embed-notice__backdrop" data-notice-dismiss aria-hidden="true"></div>' +
+      '<div class="embed-notice__card">' +
+      '<span class="embed-notice__badge">Data Advisory</span>' +
+      '<h2 class="embed-notice__title" id="embed-notice-title">Preliminary 2026 Data</h2>' +
+      '<p class="embed-notice__message"></p>' +
+      '<button type="button" class="embed-notice__btn" data-notice-dismiss>Continue to dashboard</button>' +
+      '</div>';
+
+    container.appendChild(preliminaryNoticeEl);
+
+    preliminaryNoticeDismiss = () => hidePreliminaryNotice();
+
+    preliminaryNoticeEl.querySelectorAll('[data-notice-dismiss]').forEach((el) => {
+      el.addEventListener('click', preliminaryNoticeDismiss);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && preliminaryNoticeEl && !preliminaryNoticeEl.classList.contains('is-hidden')) {
+        preliminaryNoticeDismiss();
+      }
+    });
+  }
+
+  function getHubContext() {
+    if (document.body.classList.contains('hub-page--da')) return 'da';
+    return 'psa';
+  }
+
+  function getPreliminaryNoticeContent(type) {
+    const meta = getTypeMeta(type);
+    const hub = getHubContext();
+
+    if (hub === 'da') {
+      return {
+        title: 'Partial 2026 Data',
+        message:
+          'Statistics and figures shown in this ' +
+          meta.label +
+          ' include <strong>2026 data that are partial</strong> and cover only the period up to the current reported date.',
+      };
+    }
+
+    return {
+      title: 'Preliminary 2026 Data',
+      message:
+        'Statistics and figures shown in this ' +
+        meta.label +
+        ' may include <strong>2026 data that are still preliminary</strong> and subject to revision once final verification is complete.',
+    };
+  }
+
+  function showPreliminaryNotice(config) {
+    initPreliminaryNotice();
+    if (!preliminaryNoticeEl) return;
+
+    const messageEl = preliminaryNoticeEl.querySelector('.embed-notice__message');
+    const titleEl = preliminaryNoticeEl.querySelector('.embed-notice__title');
+    const btnEl = preliminaryNoticeEl.querySelector('.embed-notice__btn');
+    const type = config.type || 'dashboard';
+    const meta = getTypeMeta(type);
+    const content = getPreliminaryNoticeContent(type);
+
+    if (titleEl) {
+      titleEl.textContent = content.title;
+    }
+    if (messageEl) {
+      messageEl.innerHTML = content.message;
+    }
+    if (btnEl) {
+      btnEl.textContent = 'Continue to ' + meta.label;
+    }
+
+    preliminaryNoticeEl.classList.remove('is-hidden');
+    requestAnimationFrame(() => {
+      preliminaryNoticeEl.classList.add('is-visible');
+      btnEl?.focus();
+    });
+  }
+
+  function hidePreliminaryNotice() {
+    if (!preliminaryNoticeEl) return;
+
+    preliminaryNoticeEl.classList.remove('is-visible');
+    preliminaryNoticeEl.classList.add('is-hidden');
+  }
+
   function showIntegrationPending(config) {
     const { placeholder, fullscreenBtn, pending } = getElements();
+    hidePreliminaryNotice();
     const type = config.type || 'dashboard';
     const meta = getTypeMeta(type);
 
@@ -117,6 +220,7 @@
 
     hideIntegrationPending();
     removeIframe();
+    showPreliminaryNotice(config);
 
     const iframe = document.createElement('iframe');
     iframe.className = 'embed-iframe';
@@ -346,10 +450,12 @@
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+      initPreliminaryNotice();
       initHashRouting();
       initFullscreen();
     });
   } else {
+    initPreliminaryNotice();
     initHashRouting();
     initFullscreen();
   }
