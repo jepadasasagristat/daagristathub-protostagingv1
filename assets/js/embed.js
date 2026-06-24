@@ -143,7 +143,7 @@
       message:
         'Statistics and figures shown in this ' +
         meta.label +
-        ' may include <strong>2026 data that are still preliminary</strong> and subject to revision once final verification is complete.',
+        ' which includes <strong>2026 data that are still preliminary</strong> and subject to revision.',
     };
   }
 
