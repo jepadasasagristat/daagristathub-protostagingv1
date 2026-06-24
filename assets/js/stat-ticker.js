@@ -17,12 +17,17 @@
     switch (format) {
       case 'currency':
         return '₱' + value.toFixed(2) + ' Trillion';
+      case 'currency-million':
+        return '₱' + value.toFixed(2) + ' Million';
       case 'million':
-        return value.toFixed(1) + ' Million';
+        return value.toFixed(2) + ' Million';
       case 'hectares':
-        return value.toFixed(1) + ' Million ha';
+        return value.toFixed(2) + ' Million ha';
       default:
-        return value.toLocaleString();
+        return value.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
     }
   }
 
