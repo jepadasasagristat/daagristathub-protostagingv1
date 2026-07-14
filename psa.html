@@ -68,6 +68,8 @@
             <div class="mega-dropdown__inner">
               <div class="mega-dropdown__categories">
 
+                <span class="mega-dropdown__category-header">I am blessed</span>
+
                 <!-- NAV: Dashboards › Category: Production (data-category="production") -->
                 <div class="mega-dropdown__category">
                   <button class="mega-dropdown__category-btn" data-category="production" aria-expanded="false">
@@ -76,41 +78,16 @@
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="production">
-
-                    <!-- NAV: Dashboards › Subgroup: Production Volume (default open) -->
-                    <div class="nav-subgroup is-open">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
-                          Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp;
-                          Industrial Crop Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry
-                          &amp; Dairy Production</a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Dashboards › Subgroup: Area Harvested -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested">Rice Area Harvested</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested">Corn Area Harvested</a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Dashboards › Subgroup: Yield -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield">Rice Yield</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield">Corn Yield</a>
-                      </div>
-                    </div>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
+                      Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp;
+                      Industrial Crop Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry
+                      &amp; Dairy Production</a>
                   </div>
                 </div>
 
@@ -122,23 +99,10 @@
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="trade">
-
-                    <!-- NAV: Dashboards › Subgroup: Farmgate Price (default open) -->
-                    <div class="nav-subgroup is-open">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop Farmgate Prices<span
-                            class="commodity">Monthly Price Monitor</span></a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Dashboards › Subgroup: Retail Price -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices">Crop Retail Prices</a>
-                      </div>
-                    </div>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop<span
+                        class="commodity">Monthly Price Monitor</span></a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry</a>
                   </div>
                 </div>
               </div>
@@ -147,6 +111,7 @@
             <!-- NAV: Dashboards › Desktop layout (≥768px) -->
             <div class="mega-dropdown__desktop">
               <div class="mega-dropdown__desktop-categories">
+                <span class="mega-dropdown__category-header">At a glance</span>
                 <button class="mega-dropdown__desktop-category is-active" data-category="production">Production</button>
                 <button class="mega-dropdown__desktop-category" data-category="trade">Marketing &amp; Trade</button>
               </div>
@@ -154,65 +119,24 @@
 
                 <!-- NAV: Dashboards › Desktop panel: Production -->
                 <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production">
-                  <h4>Production</h4>
-
-                  <!-- NAV: Dashboards › Desktop › Subgroup: Production Volume (default open) -->
-                  <div class="nav-subgroup is-open">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
-                        Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp;
-                        Industrial Crop Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry
-                        &amp; Dairy Production</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Dashboards › Desktop › Subgroup: Area Harvested -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested">Rice Area Harvested</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested">Corn Area Harvested</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Dashboards › Desktop › Subgroup: Yield -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield">Palay Yield</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield">Corn Yield</a>
-                    </div>
-                  </div>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable
+                    Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp;
+                    Industrial Crop Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry
+                    &amp; Dairy Production</a>
                 </div>
 
                 <!-- NAV: Dashboards › Desktop panel: Marketing & Trade -->
                 <div class="mega-dropdown__desktop-subitems-panel" data-category="trade">
-                  <h4>Marketing &amp; Trade</h4>
-
-                  <!-- NAV: Dashboards › Desktop › Subgroup: Farmgate Price (default open) -->
-                  <div class="nav-subgroup is-open">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop Farmgate Prices</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries Farmgate Prices</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry Farmgate Prices</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Dashboards › Desktop › Subgroup: Retail Price -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices">Crop Retail Prices</a>
-                    </div>
-                  </div>
+                  <h4>Price</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry</a>
                 </div>
               </div>
             </div>
@@ -260,7 +184,6 @@
 
                 <!-- NAV: Geospatial Maps › Desktop panel: Production -->
                 <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-map">
-                  <h4>Production</h4>
                   <a href="#" class="mega-dropdown__subitem" data-hash="psa-regional-production-map">Production Maps</a>
                 </div>
               </div>
@@ -284,6 +207,8 @@
             <div class="mega-dropdown__inner">
               <div class="mega-dropdown__categories">
 
+                <span class="mega-dropdown__category-header">At a glance</span>
+
                 <!-- NAV: Raw Data Tables › Category: Production (data-category="production-table") -->
                 <div class="mega-dropdown__category">
                   <button class="mega-dropdown__category-btn" data-category="production-table" aria-expanded="false">
@@ -292,45 +217,18 @@
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="production-table">
-
-                    <!-- NAV: Raw Data Tables › Subgroup: Production Volume (default open) -->
-                    <div class="nav-subgroup is-open">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit
-                          Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
-                          Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
-                          Industrial Crop Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries
-                          Production</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock,
-                          Poultry &amp; Dairy Production</a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Raw Data Tables › Subgroup: Area Harvested -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Rice Area
-                          Harvested</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area
-                          Harvested</a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Raw Data Tables › Subgroup: Yield -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Rice Yield</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
-                      </div>
-                    </div>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit
+                      Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
+                      Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
+                      Industrial Crop Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries
+                      Production</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock,
+                      Poultry &amp; Dairy Production</a>
                   </div>
                 </div>
 
@@ -342,24 +240,9 @@
                       <path d="M9 18l6-6-6-6" /></svg>
                   </button>
                   <div class="mega-dropdown__subitems" data-category="trade-table">
-
-                    <!-- NAV: Raw Data Tables › Subgroup: Farmgate Price (default open) -->
-                    <div class="nav-subgroup is-open">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop Farmgate Prices</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries Farmgate Prices</a>
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry Farmgate Prices</a>
-                      </div>
-                    </div>
-
-                    <!-- NAV: Raw Data Tables › Subgroup: Retail Price -->
-                    <div class="nav-subgroup">
-                      <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-                      <div class="nav-subgroup__items">
-                        <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices-table">Crop Retail Prices</a>
-                      </div>
-                    </div>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries</a>
+                    <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry</a>
                   </div>
                 </div>
               </div>
@@ -368,6 +251,7 @@
             <!-- NAV: Raw Data Tables › Desktop layout -->
             <div class="mega-dropdown__desktop">
               <div class="mega-dropdown__desktop-categories">
+                <span class="mega-dropdown__category-header">At a glance</span>
                 <button class="mega-dropdown__desktop-category is-active"
                   data-category="production-table">Production</button>
                 <button class="mega-dropdown__desktop-category" data-category="trade-table">Marketing &amp;
@@ -377,66 +261,23 @@
 
                 <!-- NAV: Raw Data Tables › Desktop panel: Production -->
                 <div class="mega-dropdown__desktop-subitems-panel is-active" data-category="production-table">
-                  <h4>Production</h4>
-
-                  <!-- NAV: Raw Data Tables › Desktop › Subgroup: Production Volume (default open) -->
-                  <div class="nav-subgroup is-open">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
-                        Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
-                        Industrial Crop Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries
-                        Production</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock,
-                        Poultry &amp; Dairy Production</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Raw Data Tables › Desktop › Subgroup: Area Harvested -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Rice Area
-                        Harvested</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area
-                        Harvested</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Raw Data Tables › Desktop › Subgroup: Yield -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Rice Yield</a>
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
-                    </div>
-                  </div>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
+                    Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
+                    Industrial Crop Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries
+                    Production</a>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock,
+                    Poultry &amp; Dairy Production</a>
                 </div>
 
                 <!-- NAV: Raw Data Tables › Desktop panel: Marketing & Trade -->
                 <div class="mega-dropdown__desktop-subitems-panel" data-category="trade-table">
-                  <h4>Marketing &amp; Trade</h4>
-
-                  <!-- NAV: Raw Data Tables › Desktop › Subgroup: Farmgate Price (default open) -->
-                  <div class="nav-subgroup is-open">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices-table">Crop Farmgate Prices</a>
-                    </div>
-                  </div>
-
-                  <!-- NAV: Raw Data Tables › Desktop › Subgroup: Retail Price -->
-                  <div class="nav-subgroup">
-                    <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-                    <div class="nav-subgroup__items">
-                      <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices-table">Crop Retail Prices</a>
-                    </div>
-                  </div>
+                  <h4>Price</h4>
+                  <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices-table">Crop</a>
                 </div>
               </div>
             </div>
@@ -457,44 +298,21 @@
       <button class="nav-hub-mobile__section-btn" aria-expanded="false">Dashboards</button>
       <div class="nav-hub-mobile__content" style="display:none">
 
+        <span class="nav-hub-mobile__category-header">At a glance</span>
+
         <!-- NAV-MOBILE: Dashboards › Category: Production -->
         <div class="nav-hub-mobile__category">
           <button class="nav-hub-mobile__category-btn" aria-expanded="false">Production</button>
           <div class="nav-hub-mobile__subitems">
-
-            <!-- NAV-MOBILE: Dashboards › Subgroup: Production Volume (default open) -->
-            <div class="nav-subgroup is-open">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp; Industrial
-                  Crop Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry &amp;
-                  Dairy Production</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Dashboards › Subgroup: Area Harvested -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested">Rice Area Harvested</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested">Corn Area Harvested</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Dashboards › Subgroup: Yield -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield">Rice Yield</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield">Corn Yield</a>
-              </div>
-            </div>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production">Rice Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production">Corn Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production">Fruit Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production">Vegetable Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production">Non-Food &amp; Industrial
+              Crop Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production">Fisheries Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production">Livestock, Poultry &amp;
+              Dairy Production</a>
           </div>
         </div>
 
@@ -502,24 +320,9 @@
         <div class="nav-hub-mobile__category">
           <button class="nav-hub-mobile__category-btn" aria-expanded="false">Marketing &amp; Trade</button>
           <div class="nav-hub-mobile__subitems">
-
-            <!-- NAV-MOBILE: Dashboards › Subgroup: Farmgate Price (default open) -->
-            <div class="nav-subgroup is-open">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop Farmgate Prices</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries Farmgate Prices</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry Farmgate Prices</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Dashboards › Subgroup: Retail Price -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices">Crop Retail Prices</a>
-              </div>
-            </div>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices">Crop</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-farmgate-prices">Fisheries</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-farmgate-prices">Livestock &amp; Poultry</a>
           </div>
         </div>
       </div>
@@ -545,45 +348,22 @@
       <button class="nav-hub-mobile__section-btn" aria-expanded="false">Raw Data Tables</button>
       <div class="nav-hub-mobile__content" style="display:none">
 
+        <span class="nav-hub-mobile__category-header">At a glance</span>
+
         <!-- NAV-MOBILE: Raw Data Tables › Category: Production -->
         <div class="nav-hub-mobile__category">
           <button class="nav-hub-mobile__category-btn" aria-expanded="false">Production</button>
           <div class="nav-hub-mobile__subitems">
-
-            <!-- NAV-MOBILE: Raw Data Tables › Subgroup: Production Volume (default open) -->
-            <div class="nav-subgroup is-open">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Production Volume</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
-                  Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
-                  Industrial Crop Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries Production</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock, Poultry
-                  &amp; Dairy Production</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Raw Data Tables › Subgroup: Area Harvested -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Area Harvested</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-harvested-table">Rice Area Harvested</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-harvested-table">Corn Area Harvested</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Raw Data Tables › Subgroup: Yield -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Yield</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-yield-table">Rice Yield</a>
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-yield-table">Corn Yield</a>
-              </div>
-            </div>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-rice-production-table">Rice Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-corn-production-table">Corn Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-fruit-production-table">Fruit Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-vegetable-production-table">Vegetable
+              Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-non-food-production-table">Non-Food &amp;
+              Industrial Crop Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-fish-production-table">Fisheries Production</a>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-livestock-production-table">Livestock, Poultry
+              &amp; Dairy Production</a>
           </div>
         </div>
 
@@ -591,22 +371,7 @@
         <div class="nav-hub-mobile__category">
           <button class="nav-hub-mobile__category-btn" aria-expanded="false">Marketing &amp; Trade</button>
           <div class="nav-hub-mobile__subitems">
-
-            <!-- NAV-MOBILE: Raw Data Tables › Subgroup: Farmgate Price (default open) -->
-            <div class="nav-subgroup is-open">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="true">Farmgate Price</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices-table">Crop Farmgate Prices</a>
-              </div>
-            </div>
-
-            <!-- NAV-MOBILE: Raw Data Tables › Subgroup: Retail Price -->
-            <div class="nav-subgroup">
-              <button type="button" class="nav-subgroup__toggle" aria-expanded="false">Retail Price</button>
-              <div class="nav-subgroup__items">
-                <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-retail-prices-table">Crop Retail Prices</a>
-              </div>
-            </div>
+            <a href="#" class="mega-dropdown__subitem" data-hash="psa-crop-farmgate-prices-table">Crop</a>
           </div>
         </div>
       </div>
@@ -743,26 +508,6 @@
         url: 'https://datastudio.google.com/embed/reporting/097ef2d3-cc29-4dc5-954c-65343ffd205a/page/8QuyF'
       },
 
-      /* ── Dashboards › Area Harvested ───────────────────────────────── */
-      'psa-rice-harvested': {
-        title: 'PSA Rice Area Harvested Dashboard',
-        type: 'dashboard'
-      },
-      'psa-corn-harvested': {
-        title: 'PSA Corn Area Harvested Dashboard',
-        type: 'dashboard'
-      },
-
-      /* ── Dashboards › Yield ──────────────────────────────────────── */
-      'psa-rice-yield': {
-        title: 'PSA Rice Yield Dashboard',
-        type: 'dashboard'
-      },
-      'psa-corn-yield': {
-        title: 'PSA Corn Yield Dashboard',
-        type: 'dashboard'
-      },
-
       /* ── Dashboards › Marketing & Trade › Farmgate Price ─────────── */
       'psa-crop-farmgate-prices': {
         title: 'PSA Crop Farmgate Prices Dashboard',
@@ -778,12 +523,6 @@
         title: 'PSA Livestock & Poultry Farmgate Prices Dashboard',
         type: 'dashboard',
         url: 'https://datastudio.google.com/embed/reporting/7e944fe6-b5ec-4908-be45-83b572f3d001/page/p_kxql0mk93d'
-      },
-
-      /* ── Dashboards › Marketing & Trade › Retail Price ───────────── */
-      'psa-crop-retail-prices': {
-        title: 'PSA Crop Retail Prices Dashboard',
-        type: 'dashboard'
       },
 
       /* ── Geospatial Maps › Production ────────────────────────────── */
@@ -823,35 +562,9 @@
         type: 'table'
       },
 
-      /* ── Raw Data Tables › Area Harvested ────────────────────────── */
-      'psa-rice-harvested-table': {
-        title: 'PSA Rice Area Harvested Table',
-        type: 'table'
-      },
-      'psa-corn-harvested-table': {
-        title: 'PSA Corn Area Harvested Table',
-        type: 'table'
-      },
-
-      /* ── Raw Data Tables › Yield ─────────────────────────────────── */
-      'psa-rice-yield-table': {
-        title: 'PSA Rice Yield Table',
-        type: 'table'
-      },
-      'psa-corn-yield-table': {
-        title: 'PSA Corn Yield Table',
-        type: 'table'
-      },
-
       /* ── Raw Data Tables › Marketing & Trade › Farmgate Price ────── */
       'psa-farmgate-prices-table': {
         title: 'PSA Farmgate Prices Table',
-        type: 'table'
-      },
-
-      /* ── Raw Data Tables › Marketing & Trade › Retail Price ──────── */
-      'psa-retail-prices-table': {
-        title: 'PSA Retail Prices Table',
         type: 'table'
       }
     };
