@@ -215,6 +215,21 @@
     });
   }
 
+  function resolveEmbedUrl(url) {
+    if (!url || !/powerbi\.com/i.test(url)) return url;
+
+    try {
+      const parsed = new URL(url);
+      if (!parsed.searchParams.has('pageView')) {
+        parsed.searchParams.set('pageView', 'FitToWidth');
+      }
+      return parsed.toString();
+    } catch (_) {
+      if (/[?&]pageView=/i.test(url)) return url;
+      return url + (url.includes('?') ? '&' : '?') + 'pageView=FitToWidth';
+    }
+  }
+
   function loadLiveEmbed(config) {
     const { container, fullscreenBtn } = getElements();
 
@@ -224,9 +239,16 @@
 
     const iframe = document.createElement('iframe');
     iframe.className = 'embed-iframe';
-    iframe.title = config.title || 'Dashboard';
+    if (/powerbi\.com/i.test(config.url || '')) {
+      iframe.classList.add('embed-iframe--powerbi');
+    }
+    iframe.title = config.iframeTitle || config.title || 'Dashboard';
+    iframe.width = '100%';
+    iframe.height = '100%';
     iframe.setAttribute('loading', 'lazy');
-    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowFullScreen', 'true');
+    iframe.allowFullscreen = true;
 
     iframe.addEventListener('load', () => {
       hideSkeleton();
@@ -234,7 +256,7 @@
       fullscreenBtn?.classList.add('is-visible');
     });
 
-    iframe.src = config.url;
+    iframe.src = resolveEmbedUrl(config.url);
     container.appendChild(iframe);
   }
 
@@ -289,7 +311,7 @@
   }
 
   function trailFromCategoryEl(el) {
-    const category = normalizeLabel(el.textContent);
+    const label = normalizeLabel(el.textContent);
     let section = '';
 
     const mega = el.closest('.mega-dropdown');
@@ -304,7 +326,7 @@
 
     return {
       section,
-      category,
+      category: label,
       subgroup: '',
       subitem: '',
     };
