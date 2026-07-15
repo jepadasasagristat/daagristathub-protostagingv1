@@ -288,7 +288,37 @@
     return normalizeLabel(panel?.querySelector('h4')?.textContent);
   }
 
+  function trailFromCategoryEl(el) {
+    const category = normalizeLabel(el.textContent);
+    let section = '';
+
+    const mega = el.closest('.mega-dropdown');
+    if (mega) {
+      section = getSectionFromDropdown(mega);
+    } else {
+      const mobileSection = el.closest('.nav-hub-mobile__section');
+      section = normalizeLabel(
+        mobileSection?.querySelector('.nav-hub-mobile__section-btn')?.textContent
+      );
+    }
+
+    return {
+      section,
+      category,
+      subgroup: '',
+      subitem: '',
+    };
+  }
+
   function trailFromLink(link) {
+    if (
+      link.matches(
+        '.mega-dropdown__desktop-category, .mega-dropdown__category-btn, .nav-hub-mobile__category-btn'
+      )
+    ) {
+      return trailFromCategoryEl(link);
+    }
+
     const mobileSection = link.closest('.nav-hub-mobile__section');
     const megaCategory = link.closest('.mega-dropdown__category');
     const desktopPanel = link.closest('.mega-dropdown__desktop-subitems-panel');
@@ -331,10 +361,16 @@
 
     links.forEach((link) => {
       const trail = trailFromLink(link);
-      if (!trail.subitem) return;
-      if (trail.section && trail.category) {
+      const isCategoryLevel = !trail.subitem && trail.section && trail.category;
+      const isLeaf = Boolean(trail.subitem);
+
+      if (!isCategoryLevel && !isLeaf) return;
+
+      if (isLeaf && trail.section && trail.category) {
         best = trail;
-      } else if (!best) {
+      } else if (isLeaf && !best) {
+        best = trail;
+      } else if (isCategoryLevel && !best) {
         best = trail;
       }
     });

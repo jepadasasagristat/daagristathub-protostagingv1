@@ -58,6 +58,17 @@
     });
   }
 
+  function navigateToHash(hash, options) {
+    const clean = (hash || '').replace(/^#/, '');
+    if (!clean) return;
+
+    window.location.hash = clean;
+
+    if (options?.closeDropdown) {
+      closeAllDropdowns();
+    }
+  }
+
   function initDesktopDropdowns() {
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
@@ -81,6 +92,15 @@
         catBtn.addEventListener('focus', () => {
           activateCategory(dropdown, catBtn);
         });
+
+        catBtn.addEventListener('click', (e) => {
+          if (!isDesktop()) return;
+          e.stopPropagation();
+          activateCategory(dropdown, catBtn);
+          if (catBtn.dataset.hash) {
+            navigateToHash(catBtn.dataset.hash, { closeDropdown: true });
+          }
+        });
       });
 
       /* Mobile accordion categories */
@@ -96,6 +116,9 @@
           } else {
             activateCategory(dropdown, catBtn);
           }
+          if (catBtn.dataset.hash) {
+            navigateToHash(catBtn.dataset.hash);
+          }
         });
       });
 
@@ -105,8 +128,7 @@
           e.preventDefault();
           const hash = link.dataset.hash || link.getAttribute('href');
           if (hash) {
-            window.location.hash = hash.replace('#', '');
-            closeAllDropdowns();
+            navigateToHash(hash, { closeDropdown: true });
 
             dropdown.querySelectorAll('.mega-dropdown__subitem, .mega-dropdown__desktop-subitems-panel a').forEach((l) => {
               l.classList.remove('is-active');
@@ -153,6 +175,14 @@
         const prev = categories[currentIndex - 1] || categories[categories.length - 1];
         prev.focus();
         activateCategory(activeDropdown, prev);
+      }
+
+      if (e.key === 'Enter' && currentIndex >= 0) {
+        const focusedCat = categories[currentIndex];
+        if (focusedCat?.dataset.hash) {
+          e.preventDefault();
+          navigateToHash(focusedCat.dataset.hash, { closeDropdown: true });
+        }
       }
     });
   }
@@ -232,6 +262,10 @@
           sibSubitems?.classList.toggle('is-open', isOpen);
           sibBtn?.setAttribute('aria-expanded', String(isOpen));
         });
+
+        if (btn.dataset.hash) {
+          navigateToHash(btn.dataset.hash);
+        }
       });
     });
 
